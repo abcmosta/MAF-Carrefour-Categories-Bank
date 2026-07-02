@@ -1,0 +1,6 @@
+{
+  "name": "MAF Carrefour Categories Bank",
+  "description": "An ultra-fast client-side spreadsheet viewer and search engine. Upload Excel files, search across cells instantly, and click to copy values to the clipboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

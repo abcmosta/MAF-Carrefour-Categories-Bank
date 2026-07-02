@@ -1,0 +1,1625 @@
+{
+  "name": "New Categories",
+  "rows": [
+    [
+      "Category Path",
+      "Product Type",
+      "Vertical",
+      "Category Level 1",
+      "Category Level 2",
+      "Category Level 3",
+      "Category Level 4",
+      "Product Types"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._PerfumesFragrances_Perfumes",
+      "Perfumes",
+      "Perfumes & Fragrances",
+      "Consumer Goods",
+      "D.P.H.",
+      "Perfumes & Fragrances",
+      "Perfumes",
+      "Perfumes, Perfume, Eau de Parfum, Eau de Toilette"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._PerfumesFragrances_BodyMistsSprays",
+      "BodyMistsSprays",
+      "Perfumes & Fragrances",
+      "Consumer Goods",
+      "D.P.H.",
+      "Perfumes & Fragrances",
+      "Body Mists Sprays",
+      "Body Mists Sprays, Body Mist, Body Spray, Fragrance Mist"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._PerfumesFragrances_PerfumeGiftSets",
+      "PerfumeGiftSets",
+      "Perfumes & Fragrances",
+      "Consumer Goods",
+      "D.P.H.",
+      "Perfumes & Fragrances",
+      "Perfume Gift Sets",
+      "Perfume Gift Sets, Perfume Gift Set, Fragrance Set"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupFace_Foundations",
+      "Foundations",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Face",
+      "Foundations",
+      "Foundations, Foundation, Liquid Foundation, Powder Foundation"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupFace_Concealers",
+      "Concealers",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Face",
+      "Concealers",
+      "Concealers, Concealer, Color Corrector, Under Eye Concealer"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupFace_Primers",
+      "Primers",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Face",
+      "Primers",
+      "Primers, Face Primer, Pore Minimizer, Makeup Base"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupFace_BB&CCCreams",
+      "BB&CCCreams",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Face",
+      "BB & CC Creams",
+      "BB & CCCreams, BB Cream, CC Cream, Tinted Moisturizer"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupFace_TintedMoisturizers",
+      "TintedMoisturizers",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Face",
+      "Tinted Moisturizers",
+      "Tinted Moisturizers, Tinted Moisturizer, Skin Tint, Hydrating Tint"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupFace_SettingSprays&Powders",
+      "SettingSprays&Powders",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Face",
+      "Setting Sprays & Powders",
+      "Setting Sprays & Powders, Setting Spray, Setting Powder, Finishing Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupFace_Powders",
+      "Powders",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Face",
+      "Powders",
+      "Powders, Face Powder, Translucent Powder, Pressed Powder"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupFace_Blushes",
+      "Blushes",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Face",
+      "Blushes",
+      "Blushes, Blush, Cream Blush, Powder Blush"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupFace_MakeupHighlighters",
+      "MakeupHighlighters",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Face",
+      "Makeup Highlighters",
+      "Makeup Highlighters, Highlighter, Illuminator, Glow Stick"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupFace_Bronzers",
+      "Bronzers",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Face",
+      "Bronzers",
+      "Bronzers, Bronzer, Bronzing Powder, Sun-Kissed Bronzer"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupFace_Contours",
+      "Contours",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Face",
+      "Contours",
+      "Contours, Contour Powder, Contour Stick, Sculpting Kit"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupEyes_Eyeshadows",
+      "Eyeshadows",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Eyes",
+      "Eyeshadows",
+      "Eyeshadows, Eyeshadow, Eyeshadow Palette, Single Eyeshadow"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupEyes_Eyeliners&Kohl",
+      "Eyeliners&Kohl",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Eyes",
+      "Eyeliners & Kohl",
+      "Eyeliners & Kohl, Eyeliner, Kohl Pencil, Liquid Liner"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupEyes_Mascaras",
+      "Mascaras",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Eyes",
+      "Mascaras",
+      "Mascaras, Mascara, Volumizing Mascara, Waterproof Mascara"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupEyes_EyebrowPencils",
+      "EyebrowPencils",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Eyes",
+      "Eyebrow Pencils",
+      "Eyebrow Pencils, Eyebrow Pencil, Brow Definer, Micro Brow Pencil"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupEyes_EyebrowGels",
+      "EyebrowGels",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Eyes",
+      "Eyebrow Gels",
+      "Eyebrow Gels, Brow Gel, Tinted Brow Gel, Clear Brow Gel"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupEyes_FalseEyelashes&Adhesives",
+      "FalseEyelashes&Adhesives",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Eyes",
+      "False Eyelashes & Adhesives",
+      "False Eyelashes & Adhesives, False Lashes, Lash Glue, Strip Lashes"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupEyes_EyelashTreatments",
+      "EyelashTreatments",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Eyes",
+      "Eyelash Treatments",
+      "Eyelash Treatments, Lash Serum, Lash Growth, Lash Conditioner"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupEyes_EyePrimers",
+      "EyePrimers",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Eyes",
+      "Eye Primers",
+      "Eye Primers, Eye Primer, Eyeshadow Base, Lid Primer"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupEyes_EyeConcealers",
+      "EyeConcealers",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Eyes",
+      "Eye Concealers",
+      "Eye Concealers, Under Eye Concealer, Eye Brightener, Color Corrector"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupBody_BodyShimmers&Glitters",
+      "BodyShimmers&Glitters",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Body",
+      "Body Shimmers & Glitters",
+      "Body Shimmers & Glitters, Body Shimmer, Body Glitter, Highlighter Lotion"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupBody_BodyArt&TemporaryTattoos",
+      "BodyArt&TemporaryTattoos",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Body",
+      "Body Art & Temporary Tattoos",
+      "Body Art & Temporary Tattoos, Body Art, Temporary Tattoo, Body Paint"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupLips_Lipsticks",
+      "Lipsticks",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Lips",
+      "Lipsticks",
+      "Lipsticks, Lipstick, Matte Lipstick, Liquid Lipstick"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupLips_LipGlosses",
+      "LipGlosses",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Lips",
+      "Lip Glosses",
+      "Lip Glosses, Lip Gloss, Glossy Lip, Sheer Gloss"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupLips_LipLiners",
+      "LipLiners",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Lips",
+      "Lip Liners",
+      "Lip Liners, Lip Liner, Lip Pencil, Lip Definer"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupLips_LipTints",
+      "LipTints",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Lips",
+      "Lip Tints",
+      "Lip Tints, Lip Tint, Lip Stain, Water Tint"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupNails_NailPolishes",
+      "NailPolishes",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Nails",
+      "Nail Polishes",
+      "Nail Polishes, Nail Polish, Nail Lacquer, Nail Color"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupNails_GelNailPolishes",
+      "GelNailPolishes",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Nails",
+      "Gel Nail Polishes",
+      "Gel Nail Polishes, Gel Nail Polish, Gel Color, UV Gel"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupNails_NailPolishRemovers",
+      "NailPolishRemovers",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Nails",
+      "Nail Polish Removers",
+      "Nail Polish Removers, Nail Polish Remover, Acetone, Non-Acetone Remover"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupNails_NailTreatments",
+      "NailTreatments",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Nails",
+      "Nail Treatments",
+      "Nail Treatments, Nail Treatment, Nail Strengthener, Cuticle Oil"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupNails_FalseNails",
+      "FalseNails",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Nails",
+      "False Nails",
+      "False Nails, Press-On Nails, Nail Tips"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupNails_NailStickers&NailArt",
+      "NailStickers&NailArt",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Nails",
+      "Nail Stickers & Nail Art",
+      "Nail Stickers & Nail Art, Nail Stickers, Nail Art, Nail Decals"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupMakeupSets&Palettes_MakeupSets",
+      "MakeupSets",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Makeup Sets & Palettes",
+      "Makeup Sets",
+      "Makeup Sets, Makeup Set, Gift Set, Starter Kit"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupMakeupSets&Palettes_MakeupPalettes",
+      "MakeupPalettes",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Makeup Sets & Palettes",
+      "Makeup Palettes",
+      "Makeup Palettes, Makeup Set, Gift Set, Starter Kit"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupMakeup&BeautyTools_NailTools&Accessories",
+      "NailTools&Accessories",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Makeup & Beauty Tools",
+      "Nail Tools & Accessories",
+      "Nail Tools & Accessories, Nail Tools, Nail File, Cuticle Pusher"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupMakeup&BeautyTools_MakeupBrushes",
+      "MakeupBrushes",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Makeup & Beauty Tools",
+      "Makeup Brushes",
+      "Makeup Brushes, Foundation Brush, Powder Brush"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupMakeup&BeautyTools_MakeupApplicators",
+      "MakeupApplicators",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Makeup & Beauty Tools",
+      "Makeup Applicators",
+      "Makeup Applicators, Beauty Sponge, Makeup Applicator, Blending Sponge"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupMakeup&BeautyTools_EyelashCurlers",
+      "EyelashCurlers",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Makeup & Beauty Tools",
+      "Eyelash Curlers",
+      "Eyelash Curlers, Eyelash Curler, Lash Curler, Heated Curler"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupMakeup&BeautyTools_MakeupSharpeners",
+      "MakeupSharpeners",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Makeup & Beauty Tools",
+      "Makeup Sharpeners",
+      "Makeup Sharpeners, Makeup Sharpener, Pencil Sharpener, Dual Sharpener"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupMakeup&BeautyTools_Brow&LashGroomingTools",
+      "Brow&LashGroomingTools",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Makeup & Beauty Tools",
+      "Brow & Lash Grooming Tools",
+      "Brow & Lash Grooming Tools, Brow Brush, Lash Comb, Spoolie"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupMakeup&BeautyTools_BrushCleaners&CleaningTools",
+      "BrushCleaners&CleaningTools",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Makeup & Beauty Tools",
+      "Brush Cleaners & Cleaning Tools",
+      "Brush Cleaners & Cleaning Tools, Brush Cleaner, Brush Soap, Cleaning Mat"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupMakeup&BeautyTools_MakeupMirrors",
+      "MakeupMirrors",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Makeup & Beauty Tools",
+      "Makeup Mirrors",
+      "Makeup Mirrors, Makeup Mirror, Vanity Mirror, Compact Mirror"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupMakeup&BeautyTools_Makeup&ToiletryBags",
+      "Makeup&ToiletryBags",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Makeup & Beauty Tools",
+      "Makeup & Toiletry Bags",
+      "Makeup & Toiletry Bags, Makeup Bag, Toiletry Bag, Cosmetic Pouch"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_D.P.H._MakeupMakeup&BeautyTools_MakeupOrganizers&Storage",
+      "MakeupOrganizers&Storage",
+      "Makeup",
+      "Consumer Goods",
+      "D.P.H.",
+      "Makeup Makeup & Beauty Tools",
+      "Makeup Organizers & Storage",
+      "Makeup Organizers & Storage, Makeup Organizer, Brush Holder, Cosmetic Storage"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_MoisturizersandCreams_FaceCreamsandMoisturizers",
+      "FaceCreamsandMoisturizers",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Moisturizers and Creams",
+      "Face Creams and Moisturizers",
+      "Face Creamsand Moisturizers, Face Cream, Day Cream, Night Cream"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_MoisturizersandCreams_GelsandLotions",
+      "GelsandLotions",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Moisturizers and Creams",
+      "Gels and Lotions",
+      "Gelsand Lotions, Face Gel, Face Lotion, Lightweight Moisturizer"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_MoisturizersandCreams_FaceOils",
+      "FaceOils",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Moisturizers and Creams",
+      "Face Oils",
+      "Face Oils, Face Oil, Facial Oil, Nourishing Oil"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_MoisturizersandCreams_RepairBalmsandOintments",
+      "RepairBalmsandOintments",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Moisturizers and Creams",
+      "Repair Balms and Ointments",
+      "Repair Balmsand Ointments, Repair Balm, Healing Ointment, Skin Balm"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_CleansersandMakeupRemovers_FaceWashandCleansers",
+      "FaceWashandCleansers",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Cleansers and Makeup Removers",
+      "Face Wash and Cleansers",
+      "Face Washand Cleansers, Face Wash, Facial Cleanser, Cleansing Gel"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_CleansersandMakeupRemovers_MakeupRemovers",
+      "MakeupRemovers",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Cleansers and Makeup Removers",
+      "Makeup Removers",
+      "Makeup Removers, Makeup Remover, Eye Makeup Remover, Cleansing Water"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_CleansersandMakeupRemovers_CleansingOilsandBalms",
+      "CleansingOilsandBalms",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Cleansers and Makeup Removers",
+      "Cleansing Oils and Balms",
+      "Cleansing Oilsand Balms, Makeup Remover, Eye Makeup Remover, Cleansing Water"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_CleansersandMakeupRemovers_FacialWipes",
+      "FacialWipes",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Cleansers and Makeup Removers",
+      "Facial Wipes",
+      "Facial Wipes, Makeup Remover, Eye Makeup Remover, Cleansing Water"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_CleansersandMakeupRemovers_FaceCleansingSoaps",
+      "FaceCleansingSoaps",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Cleansers and Makeup Removers",
+      "Face Cleansing Soaps",
+      "Face Cleansing Soaps, Makeup Remover, Eye Makeup Remover, Cleansing Water"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_ExfoliatorsandPeels_FaceScrubs",
+      "FaceScrubs",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Exfoliators and Peels",
+      "Face Scrubs",
+      "Face Scrubs, Face Scrub, Exfoliating Scrub, Gentle Scrub"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_ExfoliatorsandPeels_PeelingSolutions",
+      "PeelingSolutions",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Exfoliators and Peels",
+      "Peeling Solutions",
+      "Peeling Solutions, Peeling Solution, Chemical Peel, AHA/BHA Peel"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_TonersandMists_Toners",
+      "Toners",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Toners and Mists",
+      "Toners",
+      "Toners, Toner, Facial Toner, Hydrating Toner"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_TonersandMists_FaceMistsandSprays",
+      "FaceMistsandSprays",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Toners and Mists",
+      "Face Mists and Sprays",
+      "Face Mistsand Sprays, Toner, Facial Toner, Hydrating Toner"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_SerumsandTreatments_FaceTreatmentsandSerums",
+      "FaceTreatmentsandSerums",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Serums and Treatments",
+      "Face Treatments and Serums",
+      "Face Treatmentsand Serums, Face Serum, Treatment Serum, Anti-Aging Serum"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_SerumsandTreatments_BlemishandAcneTreatments",
+      "BlemishandAcneTreatments",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Serums and Treatments",
+      "Blemish and Acne Treatments",
+      "Blemishand Acne Treatments, Face Serum, Treatment Serum, Anti-Aging Serum"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_EyeandLipCare_EyeSerumsandTreatments",
+      "EyeSerumsandTreatments",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Eye and Lip Care",
+      "Eye Serums and Treatments",
+      "Eye Serumsand Treatments, Face Serum, Treatment Serum, Anti-Aging Serum"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_EyeandLipCare_UnderEyeMasksandPatches",
+      "UnderEyeMasksandPatches",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Eye and Lip Care",
+      "Under Eye Masks and Patches",
+      "Under Eye Masksand Patches, Eye Mask, Eye Patches, Under Eye Pads"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_EyeandLipCare_LipBalms",
+      "LipBalms",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Eye and Lip Care",
+      "Lip Balms",
+      "Lip Balms, Lip Balm, Lip Treatment, Lip Care"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_EyeandLipCare_LipTreatmentsandMasks",
+      "LipTreatmentsandMasks",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Eye and Lip Care",
+      "Lip Treatments and Masks",
+      "Lip Treatmentsand Masks"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_Masks_SheetMasks",
+      "SheetMasks",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Masks",
+      "Sheet Masks",
+      "Sheet Masks, Sheet Mask, Facial Sheet Mask, Hydrating Mask"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_Masks_ClayandMudMasks",
+      "ClayandMudMasks",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Masks",
+      "Clay and Mud Masks",
+      "Clayand Mud Masks"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_Masks_CreamMasks",
+      "CreamMasks",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Masks",
+      "Cream Masks",
+      "Cream Masks"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_Masks_PeelOffMasks",
+      "PeelOffMasks",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Masks",
+      "Peel Off Masks",
+      "Peel Off Masks"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_Masks_SleepingMasks",
+      "SleepingMasks",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Masks",
+      "Sleeping Masks",
+      "Sleeping Masks"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_SunCareandTanning_Sunscreen",
+      "Sunscreen",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Sun Care and Tanning",
+      "Sunscreen",
+      "Sunscreen, SPF Moisturizer, Sun Protection"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_SunCareandTanning_AfterSunCare",
+      "AfterSunCare",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Sun Care and Tanning",
+      "After Sun Care",
+      "After Sun Care, Sunscreen, SPF Moisturizer, Sun Protection"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_SunCareandTanning_SelfTanners",
+      "SelfTanners",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Sun Care and Tanning",
+      "Self Tanners",
+      "Self Tanners, Sunscreen, SPF Moisturizer, Sun Protection"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_SunCareandTanning_TanEnhancers",
+      "TanEnhancers",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Sun Care and Tanning",
+      "Tan Enhancers",
+      "Tan Enhancers, Sunscreen, SPF Moisturizer, Sun Protection"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_FaceandSkincareTools_FacialCleansingDevices",
+      "FacialCleansingDevices",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Face and Skincare Tools",
+      "Facial Cleansing Devices",
+      "Facial Cleansing Devices"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_FaceandSkincareTools_FaceRollersandGuaSha",
+      "FaceRollersandGuaSha",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Face and Skincare Tools",
+      "Face Rollers and Gua Sha",
+      "Face Rollersand Gua Sha"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_FaceandSkincareTools_MicrocurrentandLEDDevices",
+      "MicrocurrentandLEDDevices",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Face and Skincare Tools",
+      "Microcurrent and LED Devices",
+      "Microcurrentand LEDDevices"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_FaceandSkincareTools_ExtractionTools",
+      "ExtractionTools",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Face and Skincare Tools",
+      "Extraction Tools",
+      "Extraction Tools"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_FaceandSkincareTools_DermaplaningTools",
+      "DermaplaningTools",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Face and Skincare Tools",
+      "Dermaplaning Tools",
+      "Dermaplaning Tools"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_FaceandSkincareTools_ApplicatorsandSpatulas",
+      "ApplicatorsandSpatulas",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Face and Skincare Tools",
+      "Applicators and Spatulas",
+      "Applicatorsand Spatulas"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_Skincare_SkincareGiftSetsandKits_SkincareGiftSetsandKit",
+      "SkincareGiftSetsandKit",
+      "Skincare",
+      "Consumer Goods",
+      "Skincare",
+      "Skincare Gift Sets and Kits",
+      "Skincare Gift Sets and Kit",
+      "Skincare Gift Setsand Kit"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyWashandSoaps_ShowerGels",
+      "ShowerGels",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Wash and Soaps",
+      "Shower Gels",
+      "Shower Gels, Body Wash, Shower Gel, Cleansing Gel"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyWashandSoaps_BarSoaps",
+      "BarSoaps",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Wash and Soaps",
+      "Bar Soaps",
+      "Bar Soaps, Body Wash, Shower Gel, Cleansing Gel"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyWashandSoaps_HandWashes",
+      "HandWashes",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Wash and Soaps",
+      "Hand Washes",
+      "Hand Washes, Body Wash, Shower Gel, Cleansing Gel"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyWashandSoaps_ShowerOils",
+      "ShowerOils",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Wash and Soaps",
+      "Shower Oils",
+      "Shower Oils, Body Wash, Shower Gel, Cleansing Gel"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyScrubsandExfoliators_BodyScrubs",
+      "BodyScrubs",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Scrubs and Exfoliators",
+      "Body Scrubs",
+      "Body Scrubs, Body Scrub, Exfoliating Scrub, Sugar Scrub"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyScrubsandExfoliators_ExfoliatingCreamsandGels",
+      "ExfoliatingCreamsandGels",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Scrubs and Exfoliators",
+      "Exfoliating Creams and Gels",
+      "Exfoliating Creamsand Gels, Body Scrub, Exfoliating Scrub, Sugar Scrub"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyCareandTreatments_BodyLotions",
+      "BodyLotions",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Care and Treatments",
+      "Body Lotions",
+      "Body Lotions, Body Lotion, Body Cream, Moisturizing Lotion"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyCareandTreatments_BodyCreams",
+      "BodyCreams",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Care and Treatments",
+      "Body Creams",
+      "Body Creams, Body Lotion, Body Cream, Moisturizing Lotion"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyCareandTreatments_BodyButters",
+      "BodyButters",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Care and Treatments",
+      "Body Butters",
+      "Body Butters"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyCareandTreatments_BodyOils",
+      "BodyOils",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Care and Treatments",
+      "Body Oils",
+      "Body Oils, Body Oil, Massage Oil, Nourishing Oil"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyCareandTreatments_BodyMud",
+      "BodyMud",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Care and Treatments",
+      "Body Mud",
+      "Body Mud"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyCareandTreatments_StretchMarkCare",
+      "StretchMarkCare",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Care and Treatments",
+      "Stretch Mark Care",
+      "Stretch Mark Care"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyCareandTreatments_FirmingandToningCare",
+      "FirmingandToningCare",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Care and Treatments",
+      "Firming and Toning Care",
+      "Firmingand Toning Care"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyCareandTreatments_BrighteningandEvenToneCare",
+      "BrighteningandEvenToneCare",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Care and Treatments",
+      "Brightening and Even Tone Care",
+      "Brighteningand Even Tone Care"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_HandandFootCare_HandCreams",
+      "HandCreams",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Hand and Foot Care",
+      "H and Creams",
+      "Hand Creams, Hand Cream, Foot Cream, Heel Balm"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_HandandFootCare_HandMasks",
+      "HandMasks",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Hand and Foot Care",
+      "Hand Masks",
+      "Hand Masks"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_HandandFootCare_FootCreams",
+      "FootCreams",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Hand and Foot Care",
+      "Foot Creams",
+      "Foot Creams, Hand Cream, Foot Cream, Heel Balm"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_HandandFootCare_FootMasksandPeels",
+      "FootMasksandPeels",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Hand and Foot Care",
+      "Foot Masks and Peels",
+      "Foot Masksand Peels"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_HandandFootCare_HeelBalms",
+      "HeelBalms",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Hand and Foot Care",
+      "Heel Balms",
+      "Heel Balms"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_HandandFootCare_FootTreatments",
+      "FootTreatments",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Hand and Foot Care",
+      "Foot Treatments",
+      "Foot Treatments"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_HandandFootCare_FootSupportandTools",
+      "FootSupportandTools",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Hand and Foot Care",
+      "Foot Support and Tools",
+      "Foot Supportand Tools"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_DeodorantsandAntiperspirants_Deodorants",
+      "Deodorants",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Deodorants and Antiperspirants",
+      "Deodorants",
+      "Deodorants, Deodorant, Antiperspirant, Body Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_DeodorantsandAntiperspirants_Antiperspirants",
+      "Antiperspirants",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Deodorants and Antiperspirants",
+      "Antiperspirants",
+      "Antiperspirants, Deodorant, Antiperspirant, Body Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_DeodorantsandAntiperspirants_AntiperspirantDeodorants",
+      "AntiperspirantDeodorants",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Deodorants and Antiperspirants",
+      "Antiperspirant Deodorants",
+      "Antiperspirant Deodorants, Deodorant, Antiperspirant, Body Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BathSaltsandSoaks_BathSalts",
+      "BathSalts",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Bath Salts and Soaks",
+      "Bath Salts",
+      "Bath Salts, Bath Soaks, Epsom Salt"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BathSaltsandSoaks_BathSoaks",
+      "BathSoaks",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Bath Salts and Soaks",
+      "Bath Soaks",
+      "Bath Soaks, Bath Salts, Epsom Salt"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BathSaltsandSoaks_BathBombs",
+      "BathBombs",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Bath Salts and Soaks",
+      "Bath Bombs",
+      "Bath Bombs, Bath Salts, Bath Soaks, Epsom Salt"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BathSaltsandSoaks_BubbleBath",
+      "BubbleBath",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Bath Salts and Soaks",
+      "Bubble Bath",
+      "Bubble Bath, Bath Salts, Bath Soaks, Epsom Salt"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BathSaltsandSoaks_BathMilk",
+      "BathMilk",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Bath Salts and Soaks",
+      "Bath Milk",
+      "Bath Milk, Bath Salts, Bath Soaks, Epsom Salt"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_MassageandEssentialOils_MassageOils",
+      "MassageOils",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Massage and Essential Oils",
+      "Massage Oils",
+      "Massage Oils"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_MassageandEssentialOils_EssentialOils",
+      "EssentialOils",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Massage and Essential Oils",
+      "Essential Oils",
+      "Essential Oils"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_MassageandEssentialOils_AromatherapyBlends",
+      "AromatherapyBlends",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Massage and Essential Oils",
+      "Aromatherapy Blends",
+      "Aromatherapy Blends"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BathingAccessoriesandTools_LoofahsandSponges",
+      "LoofahsandSponges",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Bathing Accessories and Tools",
+      "Loofahs and Sponges",
+      "Loofahsand Sponges"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BathingAccessoriesandTools_BathBrushes",
+      "BathBrushes",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Bathing Accessories and Tools",
+      "Bath Brushes",
+      "Bath Brushes"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BathingAccessoriesandTools_ExfoliatingTools",
+      "ExfoliatingTools",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Bathing Accessories and Tools",
+      "Exfoliating Tools",
+      "Exfoliating Tools"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BathingAccessoriesandTools_BackScrubbers",
+      "BackScrubbers",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Bathing Accessories and Tools",
+      "Back Scrubbers",
+      "Back Scrubbers"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BathingAccessoriesandTools_ShowerCaps",
+      "ShowerCaps",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Bathing Accessories and Tools",
+      "Shower Caps",
+      "Shower Caps"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BodyTalcandPowders_BodyTalcandPowder",
+      "BodyTalcandPowder",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Body Talc and Powders",
+      "Body Talc and Powder",
+      "Body Talcand Powder"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_BathandBody_BathandBodySets_BathandBodySet",
+      "BathandBodySet",
+      "Bath & Body",
+      "Consumer Goods",
+      "Bath and Body",
+      "Bath and Body Sets",
+      "Bath and Body Set",
+      "Bathand Body Set"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_ShampoosandConditioners_Shampoos",
+      "Shampoos",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Shampoos and Conditioners",
+      "Shampoos",
+      "Shampoos, Shampoo, Hair Shampoo, Cleansing Shampoo"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_ShampoosandConditioners_DryShampoos",
+      "DryShampoos",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Shampoos and Conditioners",
+      "Dry Shampoos",
+      "Dry Shampoos, Dry Shampoo, Waterless Shampoo, Refresh Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_ShampoosandConditioners_Conditioners",
+      "Conditioners",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Shampoos and Conditioners",
+      "Conditioners",
+      "Conditioners, Shampoo, Hair Shampoo, Cleansing Shampoo"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_ShampoosandConditioners_2in1ShampooandConditioner",
+      "2in1ShampooandConditioner",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Shampoos and Conditioners",
+      "2in1Shampoo and Conditioner",
+      "2in1Shampooand Conditioner, Shampoo, Hair Shampoo, Cleansing Shampoo"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairTreatmentsandMasks_HairMasks",
+      "HairMasks",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Treatments and Masks",
+      "Hair Masks",
+      "Hair Masks, Hair Mask, Deep Conditioner, Hair Treatment"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairTreatmentsandMasks_HairTreatments",
+      "HairTreatments",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Treatments and Masks",
+      "Hair Treatments",
+      "Hair Treatments, Hair Mask, Deep Conditioner, Hair Treatment"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairTreatmentsandMasks_ScalpTreatments",
+      "ScalpTreatments",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Treatments and Masks",
+      "Scalp Treatments",
+      "Scalp Treatments, Hair Mask, Deep Conditioner, Hair Treatment"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairTreatmentsandMasks_OilReplacement",
+      "OilReplacement",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Treatments and Masks",
+      "Oil Replacement",
+      "Oil Replacement, Hair Mask, Deep Conditioner, Hair Treatment"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairTreatmentsandMasks_KeratinandProteinTreatments",
+      "KeratinandProteinTreatments",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Treatments and Masks",
+      "Keratin and Protein Treatments",
+      "Keratinand Protein Treatments, Hair Mask, Deep Conditioner, Hair Treatment"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairOilsandSerums_HairOils",
+      "HairOils",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Oils and Serums",
+      "Hair Oils",
+      "Hair Oils, Hair Oil, Hair Serum, Shine Serum"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairOilsandSerums_HairSerums",
+      "HairSerums",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Oils and Serums",
+      "Hair Serums",
+      "Hair Serums, Hair Oil, Hair Serum, Shine Serum"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairOilsandSerums_HairAmpoules",
+      "HairAmpoules",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Oils and Serums",
+      "Hair Ampoules",
+      "Hair Ampoules, Hair Oil, Hair Serum, Shine Serum"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairStylingProducts_HairCreamsandLeaveIns",
+      "HairCreamsandLeaveIns",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Styling Products",
+      "Hair Creams and Leave Ins",
+      "Hair Creamsand Leave Ins, Hair Styling, Hair Gel, Hair Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairStylingProducts_HairSpraysandMists",
+      "HairSpraysandMists",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Styling Products",
+      "Hair Sprays and Mists",
+      "Hair Spraysand Mists, Hair Styling, Hair Gel, Hair Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairStylingProducts_HairGelsandWaxes",
+      "HairGelsandWaxes",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Styling Products",
+      "Hair Gels and Waxes",
+      "Hair Gelsand Waxes, Hair Styling, Hair Gel, Hair Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairStylingProducts_MoussesandFoams",
+      "MoussesandFoams",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Styling Products",
+      "Mousses and Foams",
+      "Moussesand Foams, Hair Styling, Hair Gel, Hair Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairStylingProducts_HeatProtection",
+      "HeatProtection",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Styling Products",
+      "Heat Protection",
+      "Heat Protection, Hair Styling, Hair Gel, Hair Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairColor_PermanentHairColor",
+      "PermanentHairColor",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Color",
+      "Permanent Hair Color",
+      "Permanent Hair Color, Hair Color, Hair Dye, Root Touch-Up"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairColor_SemiPermanentHairColor",
+      "SemiPermanentHairColor",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Color",
+      "Semi Permanent Hair Color",
+      "Semi Permanent Hair Color, Hair Color, Hair Dye, Root Touch-Up"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairColor_TemporaryHairColor",
+      "TemporaryHairColor",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Color",
+      "Temporary Hair Color",
+      "Temporary Hair Color, Hair Color, Hair Dye, Root Touch-Up"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairColor_RootTouchUp",
+      "RootTouchUp",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Color",
+      "Root Touch Up",
+      "Root Touch Up, Hair Color, Hair Dye, Root Touch-Up"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairColor_BleachandColorRemovers",
+      "BleachandColorRemovers",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Color",
+      "Bleach and Color Removers",
+      "Bleachand Color Removers, Hair Color, Hair Dye, Root Touch-Up"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairColor_HennaHairColor",
+      "HennaHairColor",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Color",
+      "Henna Hair Color",
+      "Henna Hair Color, Hair Color, Hair Dye, Root Touch-Up"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairColor_HairColorDevelopers",
+      "Mkt_HeavyHouseHold_OfficeAutomation_PCAccessories_Keyboards",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Color",
+      "Hair Color Developers",
+      "Mkt_Heavy House Hold_Office Automation_PCAccessories_Keyboards, Hair Color, Hair Dye, Root Touch-Up"
+    ],
+    [
+      "Mkt_HeavyHouseHold_HouseholdGoods_HairStylingElectricalDevices_HairDryers",
+      "HairDryers",
+      "Personal Care Appliances",
+      "Heavy House Hold",
+      "Household Goods",
+      "Hair Styling Electrical Devices",
+      "Hair Dryers",
+      "Hair Dryers"
+    ],
+    [
+      "Mkt_HeavyHouseHold_HouseholdGoods_HairStylingElectricalDevices_HairStraighteners",
+      "HairStraighteners",
+      "Personal Care Appliances",
+      "Heavy House Hold",
+      "Household Goods",
+      "Hair Styling Electrical Devices",
+      "Hair Straighteners",
+      "Hair Straighteners"
+    ],
+    [
+      "Mkt_HeavyHouseHold_HouseholdGoods_HairStylingElectricalDevices_CurlingIronsandWands",
+      "CurlingIronsandWands",
+      "Personal Care Appliances",
+      "Heavy House Hold",
+      "Household Goods",
+      "Hair Styling Electrical Devices",
+      "Curling Irons and Wands",
+      "Curling Ironsand Wands"
+    ],
+    [
+      "Mkt_HeavyHouseHold_HouseholdGoods_HairStylingElectricalDevices_HotBrushes",
+      "HotBrushes",
+      "Personal Care Appliances",
+      "Heavy House Hold",
+      "Household Goods",
+      "Hair Styling Electrical Devices",
+      "Hot Brushes",
+      "Hot Brushes"
+    ],
+    [
+      "Mkt_HeavyHouseHold_HouseholdGoods_HairStylingElectricalDevices_MultiStylingTools",
+      "MultiStylingTools",
+      "Personal Care Appliances",
+      "Heavy House Hold",
+      "Household Goods",
+      "Hair Styling Electrical Devices",
+      "Multi Styling Tools",
+      "Multi Styling Tools"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairStylingAccessories_BrushesandCombs",
+      "BrushesandCombs",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Styling Accessories",
+      "Brushes and Combs",
+      "Brushesand Combs, Hair Styling, Hair Gel, Hair Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairStylingAccessories_HairClipsandPins",
+      "HairClipsandPins",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Styling Accessories",
+      "Hair Clips and Pins",
+      "Hair Clipsand Pins, Hair Styling, Hair Gel, Hair Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairStylingAccessories_HeadbandsandBands",
+      "HeadbandsandBands",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Styling Accessories",
+      "Headbands and Bands",
+      "Headbandsand Bands, Hair Styling, Hair Gel, Hair Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairStylingAccessories_HairNetsandBonnets",
+      "HairNetsandBonnets",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Styling Accessories",
+      "Hair Nets and Bonnets",
+      "Hair Netsand Bonnets, Hair Styling, Hair Gel, Hair Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairStylingAccessories_SectioningTools",
+      "SectioningTools",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Styling Accessories",
+      "Sectioning Tools",
+      "Sectioning Tools, Hair Styling, Hair Gel, Hair Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairStylingAccessories_HairWigsandExtensions",
+      "HairWigsandExtensions",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Styling Accessories",
+      "Hair Wigs and Extensions",
+      "Hair Wigsand Extensions, Hair Styling, Hair Gel, Hair Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairStylingAccessories_HairCuttingTools",
+      "HairCuttingTools",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Styling Accessories",
+      "Hair Cutting Tools",
+      "Hair Cutting Tools, Hair Styling, Hair Gel, Hair Spray"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairLossandRegrowth_AntiHairLossTreatments",
+      "AntiHairLossTreatments",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Loss and Regrowth",
+      "Anti Hair Loss Treatments",
+      "Anti Hair Loss Treatments"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairLossandRegrowth_HairRegrowthSolutions",
+      "HairRegrowthSolutions",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Loss and Regrowth",
+      "Hair Regrowth Solutions",
+      "Hair Regrowth Solutions"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairLossandRegrowth_ThickeningandVolumizingTreatments",
+      "ThickeningandVolumizingTreatments",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Loss and Regrowth",
+      "Thickening and Volumizing Treatments",
+      "Thickeningand Volumizing Treatments"
+    ],
+    [
+      "Mkt_CONSUMERGOODS_HairCare_HairCareGiftSetsandKits_HairCareGiftSetsandKit",
+      "HairCareGiftSetsandKit",
+      "Hair Care",
+      "Consumer Goods",
+      "Hair Care",
+      "Hair Care Gift Sets and Kits",
+      "Hair Care Gift Sets and Kit",
+      "Hair Care Gift Setsand Kit"
+    ]
+  ]
+}
