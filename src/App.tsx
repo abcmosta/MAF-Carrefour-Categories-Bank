@@ -18,9 +18,9 @@ import {
   CheckCircle2,
   AlertTriangle,
   Info,
-  Sun,
-  Moon,
-  Target
+  Target,
+  Eye,
+  EyeOff,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -52,24 +52,17 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 30;
 
+  // Column visibility management
+  const [hiddenColumnsLegacy, setHiddenColumnsLegacy] = useState<number[]>([]);
+  const [hiddenColumnsFull, setHiddenColumnsFull] = useState<number[]>([]);
+
   // Clipboard Toasts
   const [copyToasts, setCopyToasts] = useState<CopyToast[]>([]);
 
-  // Dark Mode State
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    const saved = localStorage.getItem("carrefour-marketplace-theme");
-    return saved === "dark";
-  });
-
+  // Force Dark Mode permanently (application is dark-theme only)
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("carrefour-marketplace-theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("carrefour-marketplace-theme", "light");
-    }
-  }, [isDarkMode]);
+    document.documentElement.classList.add("dark");
+  }, []);
 
   // Reset pagination when query, tab, or filters change
   useEffect(() => {
@@ -325,6 +318,43 @@ export default function App() {
     );
   };
 
+  // --- Column Visibility Toggles ---
+  const toggleColumnVisibilityLegacy = (columnIndex: number) => {
+    const isHidden = hiddenColumnsLegacy.includes(columnIndex);
+    if (isHidden) {
+      setHiddenColumnsLegacy(hiddenColumnsLegacy.filter(idx => idx !== columnIndex));
+    } else {
+      // Prevent hiding all columns
+      if (hiddenColumnsLegacy.length >= 3) {
+        alert("At least one column must remain visible.");
+        return;
+      }
+      setHiddenColumnsLegacy([...hiddenColumnsLegacy, columnIndex]);
+    }
+  };
+
+  const toggleColumnVisibilityFull = (columnIndex: number) => {
+    const isHidden = hiddenColumnsFull.includes(columnIndex);
+    if (isHidden) {
+      setHiddenColumnsFull(hiddenColumnsFull.filter(idx => idx !== columnIndex));
+    } else {
+      // Prevent hiding all columns
+      if (hiddenColumnsFull.length >= 4) {
+        alert("At least one column must remain visible.");
+        return;
+      }
+      setHiddenColumnsFull([...hiddenColumnsFull, columnIndex]);
+    }
+  };
+
+  const showAllColumnsLegacy = () => {
+    setHiddenColumnsLegacy([]);
+  };
+
+  const showAllColumnsFull = () => {
+    setHiddenColumnsFull([]);
+  };
+
   // --- Column and Table Dimension Resizing ---
   const [fullCatalogWidths, setFullCatalogWidths] = useState<number[]>([320, 200, 140, 220, 180]);
   const [legacyMappingWidths, setLegacyMappingWidths] = useState<number[]>([350, 180, 300, 220]);
@@ -417,15 +447,13 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen pb-20 font-sans transition-colors duration-300 relative ${
-      isDarkMode ? "bg-zinc-950 text-zinc-100 dark" : "bg-[#faf9f6] text-slate-800"
-    }`} id="app-root-container">
+    <div className="min-h-screen pb-20 font-sans relative bg-zinc-950 text-zinc-100 dark" id="app-root-container">
       {/* Decorative ambient background glows for HeroUI dark mode branding */}
       <div className="absolute top-[-10%] left-[-10%] w-[450px] h-[450px] rounded-full bg-blue-500/10 dark:bg-blue-600/5 blur-[120px] pointer-events-none select-none z-0" />
       <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-purple-500/10 dark:bg-purple-600/5 blur-[140px] pointer-events-none select-none z-0" />
 
       {/* HeroUI Premium Navigation Bar */}
-      <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/70 dark:bg-zinc-950/70 border-b border-slate-200/60 dark:border-zinc-900/80 shadow-xs select-none">
+      <nav className="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/70 border-b border-zinc-900/80 shadow-xs select-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo Brand Segment */}
@@ -433,32 +461,18 @@ export default function App() {
               <span className="bg-[#e01a22] text-white px-2.5 py-1 rounded-lg text-[10px] font-extrabold tracking-widest shadow-sm">
                 CARREFOUR
               </span>
-              <div className="hidden md:flex flex-col border-l border-slate-200 dark:border-zinc-800 pl-3">
-                <span className="text-xs font-bold text-slate-800 dark:text-zinc-200">MAF Carrefour Categories Bank</span>
-                <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">@mosabdelaziz</span>
+              <div className="hidden md:flex flex-col border-l border-zinc-800 pl-3">
+                <span className="text-xs font-bold text-zinc-200">MAF Carrefour Categories Bank</span>
+                <span className="text-[10px] text-zinc-500 font-medium">@mosabdelaziz</span>
               </div>
             </div>
 
             {/* Portal Meta Indicator */}
             <div className="flex items-center gap-4">
-              <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-slate-100 dark:bg-zinc-900 border border-slate-200/50 dark:border-zinc-800/80 rounded-full text-[11px] font-mono font-semibold text-slate-500 dark:text-zinc-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse" />
+              <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-zinc-900 border border-zinc-800/80 rounded-full text-[11px] font-mono font-semibold text-zinc-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 bg-blue-400 animate-pulse" />
                 <span>Cosmetics D.P.H. Workstation v2.4</span>
               </div>
-
-              {/* Theme Toggle Button */}
-              <button
-                onClick={() => setIsDarkMode(!isDarkMode)}
-                className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-slate-600 dark:text-zinc-300 border border-slate-200/40 dark:border-zinc-800/50 transition-all duration-200 cursor-pointer flex items-center justify-center shrink-0 active:scale-95 shadow-sm"
-                title={isDarkMode ? "Light Mode" : "Dark Mode"}
-                aria-label="Toggle Theme Mode"
-              >
-                {isDarkMode ? (
-                  <Sun className="w-4 h-4 text-amber-400 animate-spin-slow" />
-                ) : (
-                  <Moon className="w-4 h-4 text-blue-600" />
-                )}
-              </button>
             </div>
           </div>
         </div>
@@ -471,59 +485,59 @@ export default function App() {
         {/* Dashboard Stat Counter Cards (HeroUI Bento Grid style with hover scale effects) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6" id="dashboard-statistics-grid">
           {/* Card 1 */}
-          <div className="bg-[#fafafa] dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
+          <div className="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
             <div className="flex items-center justify-between">
-              <p className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">New D.P.H. Categories</p>
-              <div className="p-2 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-xl group-hover:bg-blue-500/20 transition-colors">
+              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">New D.P.H. Categories</p>
+              <div className="p-2 bg-blue-500/10 text-blue-400 rounded-xl group-hover:bg-blue-500/20 transition-colors">
                 <CheckCircle2 className="w-4 h-4" />
               </div>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-zinc-50 mt-2 tracking-tight">161</h3>
-            <p className="text-[10px] text-blue-600 dark:text-blue-400 font-semibold mt-2 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse"></span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-50 mt-2 tracking-tight">161</h3>
+            <p className="text-[10px] text-blue-400 font-semibold mt-2 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
               <span>Fully Redesigned Channel</span>
             </p>
           </div>
 
           {/* Card 2 */}
-          <div className="bg-[#fafafa] dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
+          <div className="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
             <div className="flex items-center justify-between">
-              <p className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">Total Database Size</p>
-              <div className="p-2 bg-slate-500/10 text-slate-600 dark:text-zinc-300 rounded-xl group-hover:bg-slate-500/20 transition-colors">
+              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Total Database Size</p>
+              <div className="p-2 bg-slate-500/10 text-zinc-300 rounded-xl group-hover:bg-slate-500/20 transition-colors">
                 <FileSpreadsheet className="w-4 h-4" />
               </div>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-zinc-50 mt-2 tracking-tight">2,255</h3>
-            <p className="text-[10px] text-slate-500 dark:text-zinc-400 font-semibold mt-2">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-50 mt-2 tracking-tight">2,255</h3>
+            <p className="text-[10px] text-zinc-400 font-semibold mt-2">
               Historical catalog paths loaded
             </p>
           </div>
 
           {/* Card 3 */}
-          <div className="bg-[#fafafa] dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
+          <div className="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
             <div className="flex items-center justify-between">
-              <p className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">Merged & Streamlined</p>
-              <div className="p-2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-xl group-hover:bg-emerald-500/20 transition-colors">
+              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Merged & Streamlined</p>
+              <div className="p-2 bg-emerald-500/10 text-emerald-400 rounded-xl group-hover:bg-emerald-500/20 transition-colors">
                 <ArrowRightLeft className="w-4 h-4" />
               </div>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0050a4] dark:text-blue-400 mt-2 tracking-tight">106</h3>
-            <p className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-2 flex items-center gap-1">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-blue-400 mt-2 tracking-tight">106</h3>
+            <p className="text-[10px] text-emerald-400 font-semibold mt-2 flex items-center gap-1">
               <TrendingUp className="w-3 h-3" />
               <span>Paths merged & mapped</span>
             </p>
           </div>
 
           {/* Card 4 */}
-          <div className="bg-[#fafafa] dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
+          <div className="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
             <div className="flex items-center justify-between">
-              <p className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">Retired & Replaced</p>
-              <div className="p-2 bg-red-500/10 text-red-600 dark:text-red-400 rounded-xl group-hover:bg-red-500/20 transition-colors">
+              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Retired & Replaced</p>
+              <div className="p-2 bg-red-500/10 text-red-400 rounded-xl group-hover:bg-red-500/20 transition-colors">
                 <AlertTriangle className="w-4 h-4" />
               </div>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#e01a22] dark:text-red-400 mt-2 tracking-tight">55</h3>
-            <p className="text-[10px] text-amber-600 dark:text-amber-450 font-semibold mt-2 flex items-center gap-1">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-red-400 mt-2 tracking-tight">55</h3>
+            <p className="text-[10px] text-amber-400 font-semibold mt-2 flex items-center gap-1">
               <AlertCircle className="w-3.5 h-3.5" />
               <span>Sellers action requested</span>
             </p>
@@ -692,6 +706,102 @@ export default function App() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Column Visibility Controls - Tab Specific */}
+        {activeTab === "legacy_mapping" && (
+          <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-2xl p-5 mb-6 shadow-sm">
+            <div className="flex items-center justify-between mb-3.5 pb-3.5 border-b border-slate-100 dark:border-zinc-800/60">
+              <div className="flex items-center gap-2">
+                <Eye className="w-4 h-4 text-slate-500 dark:text-zinc-400" />
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500">Column Visibility</p>
+              </div>
+              {hiddenColumnsLegacy.length > 0 && (
+                <button
+                  onClick={showAllColumnsLegacy}
+                  className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium cursor-pointer"
+                >
+                  Show All
+                </button>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { idx: 0, label: "Legacy Path" },
+                { idx: 1, label: "Status" },
+                { idx: 2, label: "Modern Path" },
+                { idx: 3, label: "Notes" }
+              ].map(({ idx, label }) => {
+                const isHidden = hiddenColumnsLegacy.includes(idx);
+                return (
+                  <button
+                    key={`legacy-col-${idx}`}
+                    onClick={() => toggleColumnVisibilityLegacy(idx)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                      isHidden
+                        ? "bg-slate-100 dark:bg-zinc-800 text-slate-400 dark:text-zinc-500 line-through opacity-60"
+                        : "bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-950/50 border border-blue-200 dark:border-blue-900/50"
+                    }`}
+                  >
+                    {isHidden ? (
+                      <EyeOff className="w-3.5 h-3.5" />
+                    ) : (
+                      <Eye className="w-3.5 h-3.5" />
+                    )}
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {activeTab === "full_catalog" && (
+          <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-2xl p-5 mb-6 shadow-sm">
+            <div className="flex items-center justify-between mb-3.5 pb-3.5 border-b border-slate-100 dark:border-zinc-800/60">
+              <div className="flex items-center gap-2">
+                <Eye className="w-4 h-4 text-slate-500 dark:text-zinc-400" />
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500">Column Visibility</p>
+              </div>
+              {hiddenColumnsFull.length > 0 && (
+                <button
+                  onClick={showAllColumnsFull}
+                  className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium cursor-pointer"
+                >
+                  Show All
+                </button>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { idx: 0, label: "Category Path" },
+                { idx: 1, label: "Product Type" },
+                { idx: 2, label: "Vertical" },
+                { idx: 3, label: "Levels" },
+                { idx: 4, label: "Tags" }
+              ].map(({ idx, label }) => {
+                const isHidden = hiddenColumnsFull.includes(idx);
+                return (
+                  <button
+                    key={`full-col-${idx}`}
+                    onClick={() => toggleColumnVisibilityFull(idx)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                      isHidden
+                        ? "bg-slate-100 dark:bg-zinc-800 text-slate-400 dark:text-zinc-500 line-through opacity-60"
+                        : "bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-950/50 border border-blue-200 dark:border-blue-900/50"
+                    }`}
+                  >
+                    {isHidden ? (
+                      <EyeOff className="w-3.5 h-3.5" />
+                    ) : (
+                      <Eye className="w-3.5 h-3.5" />
+                    )}
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* Tab Selection Row (Sliding Pill Segmented Controller - HeroUI v3 specification) */}
         <div className="bg-slate-100/90 dark:bg-zinc-900/60 p-1.5 rounded-2xl flex flex-wrap sm:flex-nowrap gap-1 mb-6 select-none overflow-x-auto scrollbar-none shadow-inner-xs border border-slate-200/50 dark:border-zinc-800/40" id="main-navigation-tabs">
@@ -1027,54 +1137,65 @@ export default function App() {
                     <table className="w-full text-left border-collapse table-fixed">
                       <thead>
                         <tr className="bg-slate-50/80 dark:bg-zinc-950/40 border-b border-slate-200/60 dark:border-zinc-900/80 text-xs font-bold text-slate-500 dark:text-zinc-400 select-none">
-                          <th 
-                            className="p-4 relative group/header select-none"
-                            style={{ width: `${legacyMappingWidths[0]}px` }}
-                          >
-                            <span className="truncate block pr-4" title="Legacy Category Path">Legacy Category Path (Click to Copy)</span>
-                            {/* Draggable vertical separator bar */}
-                            <div
-                              onMouseDown={(e) => handleColumnResize(0, true, e)}
-                              className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
-                              title="Drag to resize column"
-                            />
-                          </th>
-                          <th 
-                            className="p-4 relative group/header select-none"
-                            style={{ width: `${legacyMappingWidths[1]}px` }}
-                          >
-                            <span className="truncate block pr-4" title="Status">Status</span>
-                            {/* Draggable vertical separator bar */}
-                            <div
-                              onMouseDown={(e) => handleColumnResize(1, true, e)}
-                              className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
-                              title="Drag to resize column"
-                            />
-                          </th>
-                          <th 
-                            className="p-4 relative group/header select-none"
-                            style={{ width: `${legacyMappingWidths[2]}px` }}
-                          >
-                            <span className="truncate block pr-4" title="Modern Replacement Path">Modern Replacement Path</span>
-                            {/* Draggable vertical separator bar */}
-                            <div
-                              onMouseDown={(e) => handleColumnResize(2, true, e)}
-                              className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
-                              title="Drag to resize column"
-                            />
-                          </th>
-                          <th 
-                            className="p-4 relative group/header select-none"
-                            style={{ width: `${legacyMappingWidths[3]}px` }}
-                          >
-                            <span className="truncate block pr-4" title="Migration Notes / Guide">Migration Notes / Guide</span>
-                            {/* Draggable vertical separator bar */}
-                            <div
-                              onMouseDown={(e) => handleColumnResize(3, true, e)}
-                              className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
-                              title="Drag to resize column"
-                            />
-                          </th>
+                          {/* Legacy Path Column */}
+                          {!hiddenColumnsLegacy.includes(0) && (
+                            <th 
+                              className="p-4 relative group/header select-none"
+                              style={{ width: `${legacyMappingWidths[0]}px` }}
+                            >
+                              <span className="truncate block pr-4" title="Legacy Category Path">Legacy Category Path (Click to Copy)</span>
+                              <div
+                                onMouseDown={(e) => handleColumnResize(0, true, e)}
+                                className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
+                                title="Drag to resize column"
+                              />
+                            </th>
+                          )}
+                          
+                          {/* Status Column */}
+                          {!hiddenColumnsLegacy.includes(1) && (
+                            <th 
+                              className="p-4 relative group/header select-none"
+                              style={{ width: `${legacyMappingWidths[1]}px` }}
+                            >
+                              <span className="truncate block pr-4" title="Status">Status</span>
+                              <div
+                                onMouseDown={(e) => handleColumnResize(1, true, e)}
+                                className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
+                                title="Drag to resize column"
+                              />
+                            </th>
+                          )}
+                          
+                          {/* Modern Path Column */}
+                          {!hiddenColumnsLegacy.includes(2) && (
+                            <th 
+                              className="p-4 relative group/header select-none"
+                              style={{ width: `${legacyMappingWidths[2]}px` }}
+                            >
+                              <span className="truncate block pr-4" title="Modern Replacement Path">Modern Replacement Path</span>
+                              <div
+                                onMouseDown={(e) => handleColumnResize(2, true, e)}
+                                className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
+                                title="Drag to resize column"
+                              />
+                            </th>
+                          )}
+                          
+                          {/* Notes Column */}
+                          {!hiddenColumnsLegacy.includes(3) && (
+                            <th 
+                              className="p-4 relative group/header select-none"
+                              style={{ width: `${legacyMappingWidths[3]}px` }}
+                            >
+                              <span className="truncate block pr-4" title="Migration Notes / Guide">Migration Notes / Guide</span>
+                              <div
+                                onMouseDown={(e) => handleColumnResize(3, true, e)}
+                                className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
+                                title="Drag to resize column"
+                              />
+                            </th>
+                          )}
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-100 dark:divide-zinc-900/60 text-xs">
@@ -1087,59 +1208,67 @@ export default function App() {
                           return (
                             <tr key={`map-row-${idx}`} className="hover:bg-slate-50/50 dark:hover:bg-zinc-800/30 transition-colors">
                               {/* Legacy Path Cell */}
-                              <td className="p-4 font-mono text-slate-700 dark:text-zinc-300">
-                                <div
-                                  onClick={(e) => triggerCopy(mapItem.legacyPath, e, "Copied Old Path!")}
-                                  className="group flex items-center justify-between gap-3 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                                >
-                                  <span className="truncate font-medium block max-w-full" title={mapItem.legacyPath}>
-                                    {highlightMatch(mapItem.legacyPath, (searchColumn === "all" || searchColumn === "legacyPath") ? searchQuery : "")}
-                                  </span>
-                                  <Copy className="w-3.5 h-3.5 text-slate-300 dark:text-zinc-650 group-hover:text-blue-600 dark:group-hover:text-blue-400 shrink-0 transition-colors" />
-                                </div>
-                                <div className="text-[10px] text-slate-400 dark:text-zinc-500 font-sans mt-1 truncate max-w-full">
-                                  Legacy Vertical: <strong className="text-slate-500 dark:text-zinc-400 font-semibold">{mapItem.legacyVertical}</strong> • Level 4: {mapItem.legacyL4}
-                                </div>
-                              </td>
-
-                              {/* Status Badge */}
-                              <td className="p-4">
-                                <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-[10px] font-bold uppercase tracking-wider border ${
-                                  isRetired
-                                    ? "bg-red-500/10 text-red-700 dark:text-red-400 border-red-500/20"
-                                    : isConsolidated
-                                    ? "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20"
-                                    : isReplaced
-                                    ? "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20"
-                                    : "bg-slate-500/10 text-slate-600 dark:text-zinc-300 border-slate-500/20"
-                                }`}>
-                                  {mapItem.status}
-                                </span>
-                              </td>
-
-                              {/* Modern Replacement Cell */}
-                              <td className="p-4 font-mono text-slate-700 dark:text-zinc-300">
-                                {mapItem.replacementPath === "N/A" ? (
-                                  <span className="text-slate-400 dark:text-zinc-600 font-sans italic">No direct replacement</span>
-                                ) : (
+                              {!hiddenColumnsLegacy.includes(0) && (
+                                <td className="p-4 font-mono text-slate-700 dark:text-zinc-300">
                                   <div
-                                    onClick={(e) => triggerCopy(mapItem.replacementPath, e, "Copied Replacement!")}
-                                    className="group flex items-center justify-between gap-2 p-2 bg-slate-50 dark:bg-zinc-950/40 hover:bg-blue-50 dark:hover:bg-blue-950/30 rounded-xl cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] border border-slate-100 dark:border-zinc-800/40"
+                                    onClick={(e) => triggerCopy(mapItem.legacyPath, e, "Copied Old Path!")}
+                                    className="group flex items-center justify-between gap-3 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                                   >
-                                    <span className="truncate font-medium block max-w-full" title={mapItem.replacementPath}>
-                                      {highlightMatch(mapItem.replacementPath, (searchColumn === "all" || searchColumn === "replacementPath") ? searchQuery : "")}
+                                    <span className="truncate font-medium block max-w-full" title={mapItem.legacyPath}>
+                                      {highlightMatch(mapItem.legacyPath, (searchColumn === "all" || searchColumn === "legacyPath") ? searchQuery : "")}
                                     </span>
                                     <Copy className="w-3.5 h-3.5 text-slate-300 dark:text-zinc-650 group-hover:text-blue-600 dark:group-hover:text-blue-400 shrink-0 transition-colors" />
                                   </div>
-                                )}
-                              </td>
+                                  <div className="text-[10px] text-slate-400 dark:text-zinc-500 font-sans mt-1 truncate max-w-full">
+                                    Legacy Vertical: <strong className="text-slate-500 dark:text-zinc-400 font-semibold">{mapItem.legacyVertical}</strong> • Level 4: {mapItem.legacyL4}
+                                  </div>
+                                </td>
+                              )}
+
+                              {/* Status Badge */}
+                              {!hiddenColumnsLegacy.includes(1) && (
+                                <td className="p-4">
+                                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-[10px] font-bold uppercase tracking-wider border ${
+                                    isRetired
+                                      ? "bg-red-500/10 text-red-700 dark:text-red-400 border-red-500/20"
+                                      : isConsolidated
+                                      ? "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20"
+                                      : isReplaced
+                                      ? "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20"
+                                      : "bg-slate-500/10 text-slate-600 dark:text-zinc-300 border-slate-500/20"
+                                  }`}>
+                                    {mapItem.status}
+                                  </span>
+                                </td>
+                              )}
+
+                              {/* Modern Replacement Cell */}
+                              {!hiddenColumnsLegacy.includes(2) && (
+                                <td className="p-4 font-mono text-slate-700 dark:text-zinc-300">
+                                  {mapItem.replacementPath === "N/A" ? (
+                                    <span className="text-slate-400 dark:text-zinc-600 font-sans italic">No direct replacement</span>
+                                  ) : (
+                                    <div
+                                      onClick={(e) => triggerCopy(mapItem.replacementPath, e, "Copied Replacement!")}
+                                      className="group flex items-center justify-between gap-2 p-2 bg-slate-50 dark:bg-zinc-950/40 hover:bg-blue-50 dark:hover:bg-blue-950/30 rounded-xl cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-[11px] border border-slate-100 dark:border-zinc-800/40"
+                                    >
+                                      <span className="truncate font-medium block max-w-full" title={mapItem.replacementPath}>
+                                        {highlightMatch(mapItem.replacementPath, (searchColumn === "all" || searchColumn === "replacementPath") ? searchQuery : "")}
+                                      </span>
+                                      <Copy className="w-3.5 h-3.5 text-slate-300 dark:text-zinc-650 group-hover:text-blue-600 dark:group-hover:text-blue-400 shrink-0 transition-colors" />
+                                    </div>
+                                  )}
+                                </td>
+                              )}
 
                               {/* Guidance / Notes */}
-                              <td className="p-4 text-slate-500 dark:text-zinc-400 font-sans leading-relaxed text-xs">
-                                <div className="truncate block max-w-full" title={mapItem.notes}>
-                                  {highlightMatch(mapItem.notes, (searchColumn === "all" || searchColumn === "notes") ? searchQuery : "")}
-                                </div>
-                              </td>
+                              {!hiddenColumnsLegacy.includes(3) && (
+                                <td className="p-4 text-slate-500 dark:text-zinc-400 font-sans leading-relaxed text-xs">
+                                  <div className="truncate block max-w-full" title={mapItem.notes}>
+                                    {highlightMatch(mapItem.notes, (searchColumn === "all" || searchColumn === "notes") ? searchQuery : "")}
+                                  </div>
+                                </td>
+                              )}
                             </tr>
                           );
                         })}
@@ -1248,66 +1377,80 @@ export default function App() {
                     <table className="w-full text-left border-collapse table-fixed">
                       <thead>
                         <tr className="bg-slate-50/80 dark:bg-zinc-950/40 border-b border-slate-200 dark:border-zinc-800 text-xs font-bold text-slate-500 dark:text-zinc-400 select-none sticky top-0 backdrop-blur-xs z-20">
-                          <th 
-                            className="p-3.5 border-r border-slate-100 dark:border-zinc-800/50 relative group/header select-none"
-                            style={{ width: `${fullCatalogWidths[0]}px` }}
-                          >
-                            <span className="truncate block pr-4" title="Category Path">Category Path (Click to copy)</span>
-                            {/* Draggable vertical separator bar */}
-                            <div
-                              onMouseDown={(e) => handleColumnResize(0, false, e)}
-                              className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
-                              title="Drag to resize column"
-                            />
-                          </th>
-                          <th 
-                            className="p-3.5 border-r border-slate-100 dark:border-zinc-800/50 relative group/header select-none"
-                            style={{ width: `${fullCatalogWidths[1]}px` }}
-                          >
-                            <span className="truncate block pr-4" title="Product Type">Product Type</span>
-                            {/* Draggable vertical separator bar */}
-                            <div
-                              onMouseDown={(e) => handleColumnResize(1, false, e)}
-                              className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
-                              title="Drag to resize column"
-                            />
-                          </th>
-                          <th 
-                            className="p-3.5 border-r border-slate-100 dark:border-zinc-800/50 relative group/header select-none"
-                            style={{ width: `${fullCatalogWidths[2]}px` }}
-                          >
-                            <span className="truncate block pr-4" title="Vertical">Vertical</span>
-                            {/* Draggable vertical separator bar */}
-                            <div
-                              onMouseDown={(e) => handleColumnResize(2, false, e)}
-                              className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
-                              title="Drag to resize column"
-                            />
-                          </th>
-                          <th 
-                            className="p-3.5 border-r border-slate-100 dark:border-zinc-800/50 relative group/header select-none"
-                            style={{ width: `${fullCatalogWidths[3]}px` }}
-                          >
-                            <span className="truncate block pr-4" title="Category Levels (1-4)">Category Levels (1-4)</span>
-                            {/* Draggable vertical separator bar */}
-                            <div
-                              onMouseDown={(e) => handleColumnResize(3, false, e)}
-                              className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
-                              title="Drag to resize column"
-                            />
-                          </th>
-                          <th 
-                            className="p-3.5 relative group/header select-none"
-                            style={{ width: `${fullCatalogWidths[4]}px` }}
-                          >
-                            <span className="truncate block pr-4" title="Product Type Tags">Product Type Tags</span>
-                            {/* Draggable vertical separator bar */}
-                            <div
-                              onMouseDown={(e) => handleColumnResize(4, false, e)}
-                              className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
-                              title="Drag to resize column"
-                            />
-                          </th>
+                          {/* Category Path Column */}
+                          {!hiddenColumnsFull.includes(0) && (
+                            <th 
+                              className="p-3.5 border-r border-slate-100 dark:border-zinc-800/50 relative group/header select-none"
+                              style={{ width: `${fullCatalogWidths[0]}px` }}
+                            >
+                              <span className="truncate block pr-4" title="Category Path">Category Path (Click to copy)</span>
+                              <div
+                                onMouseDown={(e) => handleColumnResize(0, false, e)}
+                                className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
+                                title="Drag to resize column"
+                              />
+                            </th>
+                          )}
+                          
+                          {/* Product Type Column */}
+                          {!hiddenColumnsFull.includes(1) && (
+                            <th 
+                              className="p-3.5 border-r border-slate-100 dark:border-zinc-800/50 relative group/header select-none"
+                              style={{ width: `${fullCatalogWidths[1]}px` }}
+                            >
+                              <span className="truncate block pr-4" title="Product Type">Product Type</span>
+                              <div
+                                onMouseDown={(e) => handleColumnResize(1, false, e)}
+                                className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
+                                title="Drag to resize column"
+                              />
+                            </th>
+                          )}
+                          
+                          {/* Vertical Column */}
+                          {!hiddenColumnsFull.includes(2) && (
+                            <th 
+                              className="p-3.5 border-r border-slate-100 dark:border-zinc-800/50 relative group/header select-none"
+                              style={{ width: `${fullCatalogWidths[2]}px` }}
+                            >
+                              <span className="truncate block pr-4" title="Vertical">Vertical</span>
+                              <div
+                                onMouseDown={(e) => handleColumnResize(2, false, e)}
+                                className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
+                                title="Drag to resize column"
+                              />
+                            </th>
+                          )}
+                          
+                          {/* Category Levels Column */}
+                          {!hiddenColumnsFull.includes(3) && (
+                            <th 
+                              className="p-3.5 border-r border-slate-100 dark:border-zinc-800/50 relative group/header select-none"
+                              style={{ width: `${fullCatalogWidths[3]}px` }}
+                            >
+                              <span className="truncate block pr-4" title="Category Levels (1-4)">Category Levels (1-4)</span>
+                              <div
+                                onMouseDown={(e) => handleColumnResize(3, false, e)}
+                                className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
+                                title="Drag to resize column"
+                              />
+                            </th>
+                          )}
+                          
+                          {/* Product Type Tags Column */}
+                          {!hiddenColumnsFull.includes(4) && (
+                            <th 
+                              className="p-3.5 relative group/header select-none"
+                              style={{ width: `${fullCatalogWidths[4]}px` }}
+                            >
+                              <span className="truncate block pr-4" title="Product Type Tags">Product Type Tags</span>
+                              <div
+                                onMouseDown={(e) => handleColumnResize(4, false, e)}
+                                className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-blue-500/50 active:bg-blue-600 bg-slate-200/40 dark:bg-zinc-800/35 select-none z-30 transition-colors"
+                                title="Drag to resize column"
+                              />
+                            </th>
+                          )}
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-100 dark:divide-zinc-900/60 text-xs">
@@ -1325,54 +1468,64 @@ export default function App() {
                           return (
                             <tr key={`full-row-${idx}`} className="hover:bg-slate-50/40 dark:hover:bg-zinc-800/30 transition-colors">
                               {/* Path */}
-                              <td className="p-3 font-mono border-r border-slate-100 dark:border-zinc-800/50 text-slate-700 dark:text-zinc-300">
-                                <div
-                                  onClick={(e) => triggerCopy(path, e, "Copied Path!")}
-                                  className="group flex items-center justify-between gap-3 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400"
-                                >
-                                  <span className="truncate font-medium block max-w-full" title={path}>
-                                    {highlightMatch(path, (searchColumn === "all" || searchColumn === "path") ? searchQuery : "")}
-                                  </span>
-                                  <Copy className="w-3.5 h-3.5 text-slate-300 dark:text-zinc-650 group-hover:text-blue-600 dark:group-hover:text-blue-400 shrink-0 transition-colors" />
-                                </div>
-                              </td>
+                              {!hiddenColumnsFull.includes(0) && (
+                                <td className="p-3 font-mono border-r border-slate-100 dark:border-zinc-800/50 text-slate-700 dark:text-zinc-300">
+                                  <div
+                                    onClick={(e) => triggerCopy(path, e, "Copied Path!")}
+                                    className="group flex items-center justify-between gap-3 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400"
+                                  >
+                                    <span className="truncate font-medium block max-w-full" title={path}>
+                                      {highlightMatch(path, (searchColumn === "all" || searchColumn === "path") ? searchQuery : "")}
+                                    </span>
+                                    <Copy className="w-3.5 h-3.5 text-slate-300 dark:text-zinc-650 group-hover:text-blue-600 dark:group-hover:text-blue-400 shrink-0 transition-colors" />
+                                  </div>
+                                </td>
+                              )}
 
                               {/* Product Type */}
-                              <td className="p-3 border-r border-slate-100 dark:border-zinc-800/50 font-sans font-semibold text-slate-700 dark:text-zinc-300">
-                                <span
-                                  onClick={(e) => triggerCopy(productType, e, `Copied "${productType}"!`)}
-                                  className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 block truncate max-w-full"
-                                  title={productType}
-                                >
-                                  {highlightMatch(productType || "", (searchColumn === "all" || searchColumn === "productType") ? searchQuery : "")}
-                                </span>
-                              </td>
+                              {!hiddenColumnsFull.includes(1) && (
+                                <td className="p-3 border-r border-slate-100 dark:border-zinc-800/50 font-sans font-semibold text-slate-700 dark:text-zinc-300">
+                                  <span
+                                    onClick={(e) => triggerCopy(productType, e, `Copied "${productType}"!`)}
+                                    className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 block truncate max-w-full"
+                                    title={productType}
+                                  >
+                                    {highlightMatch(productType || "", (searchColumn === "all" || searchColumn === "productType") ? searchQuery : "")}
+                                  </span>
+                                </td>
+                              )}
 
                               {/* Vertical */}
-                              <td className="p-3 border-r border-slate-100 dark:border-zinc-800/50 font-sans text-slate-500 dark:text-zinc-450">
-                                <div className="truncate max-w-full">
-                                  <span className="px-2.5 py-0.5 bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300 rounded-lg text-[10px] font-bold border border-slate-200 dark:border-zinc-700">
-                                    {vertical}
-                                  </span>
-                                </div>
-                              </td>
+                              {!hiddenColumnsFull.includes(2) && (
+                                <td className="p-3 border-r border-slate-100 dark:border-zinc-800/50 font-sans text-slate-500 dark:text-zinc-450">
+                                  <div className="truncate max-w-full">
+                                    <span className="px-2.5 py-0.5 bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300 rounded-lg text-[10px] font-bold border border-slate-200 dark:border-zinc-700">
+                                      {vertical}
+                                    </span>
+                                  </div>
+                                </td>
+                              )}
 
                               {/* Category Levels */}
-                              <td className="p-3 border-r border-slate-100 dark:border-zinc-800/50 text-slate-400 dark:text-zinc-550 font-sans">
-                                <div className="truncate block max-w-full" title={`${l1} › ${l2} › ${l3} › ${l4}`}>
-                                  {l1 && <span>{l1} › </span>}
-                                  {l2 && <span>{l2} › </span>}
-                                  {l3 && <span>{l3} › </span>}
-                                  {l4 && <strong className="text-slate-755 dark:text-zinc-250 font-bold">{l4}</strong>}
-                                </div>
-                              </td>
+                              {!hiddenColumnsFull.includes(3) && (
+                                <td className="p-3 border-r border-slate-100 dark:border-zinc-800/50 text-slate-400 dark:text-zinc-550 font-sans">
+                                  <div className="truncate block max-w-full" title={`${l1} › ${l2} › ${l3} › ${l4}`}>
+                                    {l1 && <span>{l1} › </span>}
+                                    {l2 && <span>{l2} › </span>}
+                                    {l3 && <span>{l3} › </span>}
+                                    {l4 && <strong className="text-slate-755 dark:text-zinc-250 font-bold">{l4}</strong>}
+                                  </div>
+                                </td>
+                              )}
 
                               {/* Tags */}
-                              <td className="p-3 text-slate-550 dark:text-zinc-400">
-                                <div className="truncate block max-w-full" title={productTypesStr}>
-                                  {highlightMatch(productTypesStr || "", (searchColumn === "all" || searchColumn === "tags") ? searchQuery : "")}
-                                </div>
-                              </td>
+                              {!hiddenColumnsFull.includes(4) && (
+                                <td className="p-3 text-slate-550 dark:text-zinc-400">
+                                  <div className="truncate block max-w-full" title={productTypesStr}>
+                                    {highlightMatch(productTypesStr || "", (searchColumn === "all" || searchColumn === "tags") ? searchQuery : "")}
+                                  </div>
+                                </td>
+                              )}
                             </tr>
                           );
                         })}
