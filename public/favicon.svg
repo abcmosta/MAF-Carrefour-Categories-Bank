@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Red rounded rectangle background matching Carrefour brand color -->
+  <rect x="4" y="4" width="56" height="56" rx="8" fill="#e01a22"/>
+  
+  <!-- White C letter -->
+  <text x="32" y="46" font-size="48" font-weight="900" text-anchor="middle" fill="white" font-family="Arial, sans-serif">C</text>
+</svg>
