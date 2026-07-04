@@ -18,8 +18,6 @@ import {
   CheckCircle2,
   AlertTriangle,
   Info,
-  Sun,
-  Moon,
   Target,
   Eye,
   EyeOff,
@@ -61,21 +59,10 @@ export default function App() {
   // Clipboard Toasts
   const [copyToasts, setCopyToasts] = useState<CopyToast[]>([]);
 
-  // Dark Mode State
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    const saved = localStorage.getItem("carrefour-marketplace-theme");
-    return saved === "dark";
-  });
-
+  // Force Dark Mode permanently (application is dark-theme only)
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("carrefour-marketplace-theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("carrefour-marketplace-theme", "light");
-    }
-  }, [isDarkMode]);
+    document.documentElement.classList.add("dark");
+  }, []);
 
   // Reset pagination when query, tab, or filters change
   useEffect(() => {
@@ -460,15 +447,13 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen pb-20 font-sans transition-colors duration-300 relative ${
-      isDarkMode ? "bg-zinc-950 text-zinc-100 dark" : "bg-[#faf9f6] text-slate-800"
-    }`} id="app-root-container">
+    <div className="min-h-screen pb-20 font-sans relative bg-zinc-950 text-zinc-100 dark" id="app-root-container">
       {/* Decorative ambient background glows for HeroUI dark mode branding */}
       <div className="absolute top-[-10%] left-[-10%] w-[450px] h-[450px] rounded-full bg-blue-500/10 dark:bg-blue-600/5 blur-[120px] pointer-events-none select-none z-0" />
       <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-purple-500/10 dark:bg-purple-600/5 blur-[140px] pointer-events-none select-none z-0" />
 
       {/* HeroUI Premium Navigation Bar */}
-      <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/70 dark:bg-zinc-950/70 border-b border-slate-200/60 dark:border-zinc-900/80 shadow-xs select-none">
+      <nav className="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/70 border-b border-zinc-900/80 shadow-xs select-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo Brand Segment */}
@@ -476,32 +461,18 @@ export default function App() {
               <span className="bg-[#e01a22] text-white px-2.5 py-1 rounded-lg text-[10px] font-extrabold tracking-widest shadow-sm">
                 CARREFOUR
               </span>
-              <div className="hidden md:flex flex-col border-l border-slate-200 dark:border-zinc-800 pl-3">
-                <span className="text-xs font-bold text-slate-800 dark:text-zinc-200">MAF Carrefour Categories Bank</span>
-                <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">@mosabdelaziz</span>
+              <div className="hidden md:flex flex-col border-l border-zinc-800 pl-3">
+                <span className="text-xs font-bold text-zinc-200">MAF Carrefour Categories Bank</span>
+                <span className="text-[10px] text-zinc-500 font-medium">@mosabdelaziz</span>
               </div>
             </div>
 
             {/* Portal Meta Indicator */}
             <div className="flex items-center gap-4">
-              <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-slate-100 dark:bg-zinc-900 border border-slate-200/50 dark:border-zinc-800/80 rounded-full text-[11px] font-mono font-semibold text-slate-500 dark:text-zinc-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse" />
+              <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-zinc-900 border border-zinc-800/80 rounded-full text-[11px] font-mono font-semibold text-zinc-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 bg-blue-400 animate-pulse" />
                 <span>Cosmetics D.P.H. Workstation v2.4</span>
               </div>
-
-              {/* Theme Toggle Button */}
-              <button
-                onClick={() => setIsDarkMode(!isDarkMode)}
-                className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-slate-600 dark:text-zinc-300 border border-slate-200/40 dark:border-zinc-800/50 transition-all duration-200 cursor-pointer flex items-center justify-center shrink-0 active:scale-95 shadow-sm"
-                title={isDarkMode ? "Light Mode" : "Dark Mode"}
-                aria-label="Toggle Theme Mode"
-              >
-                {isDarkMode ? (
-                  <Sun className="w-4 h-4 text-amber-400 animate-spin-slow" />
-                ) : (
-                  <Moon className="w-4 h-4 text-blue-600" />
-                )}
-              </button>
             </div>
           </div>
         </div>
@@ -514,59 +485,59 @@ export default function App() {
         {/* Dashboard Stat Counter Cards (HeroUI Bento Grid style with hover scale effects) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6" id="dashboard-statistics-grid">
           {/* Card 1 */}
-          <div className="bg-[#fafafa] dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
+          <div className="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
             <div className="flex items-center justify-between">
-              <p className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">New D.P.H. Categories</p>
-              <div className="p-2 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-xl group-hover:bg-blue-500/20 transition-colors">
+              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">New D.P.H. Categories</p>
+              <div className="p-2 bg-blue-500/10 text-blue-400 rounded-xl group-hover:bg-blue-500/20 transition-colors">
                 <CheckCircle2 className="w-4 h-4" />
               </div>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-zinc-50 mt-2 tracking-tight">161</h3>
-            <p className="text-[10px] text-blue-600 dark:text-blue-400 font-semibold mt-2 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse"></span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-50 mt-2 tracking-tight">161</h3>
+            <p className="text-[10px] text-blue-400 font-semibold mt-2 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
               <span>Fully Redesigned Channel</span>
             </p>
           </div>
 
           {/* Card 2 */}
-          <div className="bg-[#fafafa] dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
+          <div className="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
             <div className="flex items-center justify-between">
-              <p className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">Total Database Size</p>
-              <div className="p-2 bg-slate-500/10 text-slate-600 dark:text-zinc-300 rounded-xl group-hover:bg-slate-500/20 transition-colors">
+              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Total Database Size</p>
+              <div className="p-2 bg-slate-500/10 text-zinc-300 rounded-xl group-hover:bg-slate-500/20 transition-colors">
                 <FileSpreadsheet className="w-4 h-4" />
               </div>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-zinc-50 mt-2 tracking-tight">2,255</h3>
-            <p className="text-[10px] text-slate-500 dark:text-zinc-400 font-semibold mt-2">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-50 mt-2 tracking-tight">2,255</h3>
+            <p className="text-[10px] text-zinc-400 font-semibold mt-2">
               Historical catalog paths loaded
             </p>
           </div>
 
           {/* Card 3 */}
-          <div className="bg-[#fafafa] dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
+          <div className="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
             <div className="flex items-center justify-between">
-              <p className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">Merged & Streamlined</p>
-              <div className="p-2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-xl group-hover:bg-emerald-500/20 transition-colors">
+              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Merged & Streamlined</p>
+              <div className="p-2 bg-emerald-500/10 text-emerald-400 rounded-xl group-hover:bg-emerald-500/20 transition-colors">
                 <ArrowRightLeft className="w-4 h-4" />
               </div>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0050a4] dark:text-blue-400 mt-2 tracking-tight">106</h3>
-            <p className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-2 flex items-center gap-1">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-blue-400 mt-2 tracking-tight">106</h3>
+            <p className="text-[10px] text-emerald-400 font-semibold mt-2 flex items-center gap-1">
               <TrendingUp className="w-3 h-3" />
               <span>Paths merged & mapped</span>
             </p>
           </div>
 
           {/* Card 4 */}
-          <div className="bg-[#fafafa] dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
+          <div className="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
             <div className="flex items-center justify-between">
-              <p className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">Retired & Replaced</p>
-              <div className="p-2 bg-red-500/10 text-red-600 dark:text-red-400 rounded-xl group-hover:bg-red-500/20 transition-colors">
+              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Retired & Replaced</p>
+              <div className="p-2 bg-red-500/10 text-red-400 rounded-xl group-hover:bg-red-500/20 transition-colors">
                 <AlertTriangle className="w-4 h-4" />
               </div>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#e01a22] dark:text-red-400 mt-2 tracking-tight">55</h3>
-            <p className="text-[10px] text-amber-600 dark:text-amber-450 font-semibold mt-2 flex items-center gap-1">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-red-400 mt-2 tracking-tight">55</h3>
+            <p className="text-[10px] text-amber-400 font-semibold mt-2 flex items-center gap-1">
               <AlertCircle className="w-3.5 h-3.5" />
               <span>Sellers action requested</span>
             </p>

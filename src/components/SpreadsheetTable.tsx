@@ -124,7 +124,7 @@ export default function SpreadsheetTable({
 
   // Helper to highlight matches safely
   const highlightCell = (text: string, query: string) => {
-    if (!query.trim()) return <span className="text-slate-700">{text}</span>;
+    if (!query.trim()) return <span className="text-zinc-300">{text}</span>;
 
     // Standardize query to make regex-safe
     const safeQuery = query.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
@@ -134,12 +134,12 @@ export default function SpreadsheetTable({
     const parts = text.split(regex);
 
     return (
-      <span className="text-slate-700 font-normal">
+      <span className="text-zinc-300 font-normal">
         {parts.map((part, index) =>
           regex.test(part) ? (
             <mark
               key={index}
-              className="bg-amber-100 text-amber-900 px-0.5 rounded-sm font-medium border-b border-amber-300"
+              className="bg-amber-600/40 text-amber-200 px-0.5 rounded-sm font-medium border-b border-amber-500/40"
             >
               {part}
             </mark>
@@ -152,17 +152,17 @@ export default function SpreadsheetTable({
   };
 
   return (
-    <div className="bg-white border border-slate-200/80 rounded-2xl shadow-xs overflow-hidden" id="spreadsheet-table-container">
+    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl shadow-xs overflow-hidden" id="spreadsheet-table-container">
       {/* Table Actions Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 bg-slate-50/75 border-b border-slate-100">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 bg-zinc-900/50 border-b border-zinc-800">
         <div>
-          <h3 className="text-sm font-semibold text-slate-800 flex items-center gap-1.5">
+          <h3 className="text-sm font-semibold text-zinc-100 flex items-center gap-1.5">
             <span>Query Results Table</span>
-            <span className="px-2 py-0.5 text-xs font-medium bg-slate-200/80 text-slate-600 rounded-full font-mono">
+            <span className="px-2 py-0.5 text-xs font-medium bg-zinc-800/80 text-zinc-300 rounded-full font-mono">
               {rows.length} of {totalOriginalRowsCount} rows matching
             </span>
           </h3>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-zinc-400 mt-1">
             Click any individual cell to copy its value, or use row copy buttons.
           </p>
         </div>
@@ -171,7 +171,7 @@ export default function SpreadsheetTable({
           <div className="flex items-center gap-2">
             <button
               onClick={handleCopyAllFiltered}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100/80 rounded-lg border border-emerald-100 transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-emerald-300 bg-emerald-900/30 hover:bg-emerald-900/50 rounded-lg border border-emerald-800/60 transition-colors cursor-pointer"
               title="Copy all matching rows to paste into Excel"
             >
               <CopyCheck className="w-3.5 h-3.5" />
@@ -179,7 +179,7 @@ export default function SpreadsheetTable({
             </button>
             <button
               onClick={handleDownloadCSV}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-250 rounded-lg transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-zinc-300 bg-zinc-800/40 hover:bg-zinc-800/60 border border-zinc-800 rounded-lg transition-colors cursor-pointer"
               title="Download results as a CSV file"
             >
               <Download className="w-3.5 h-3.5" />
@@ -192,11 +192,11 @@ export default function SpreadsheetTable({
       {/* Actual Data Table Grid Container */}
       {rows.length === 0 ? (
         <div className="py-16 text-center">
-          <div className="inline-flex items-center justify-center p-4 bg-slate-100 text-slate-400 rounded-full mb-3">
+          <div className="inline-flex items-center justify-center p-4 bg-zinc-800/40 text-zinc-500 rounded-full mb-3">
             <ChevronLeft className="w-6 h-6 rotate-45" />
           </div>
-          <h3 className="text-sm font-semibold text-slate-800">No search records match</h3>
-          <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">
+          <h3 className="text-sm font-semibold text-zinc-200">No search records match</h3>
+          <p className="text-xs text-zinc-400 mt-1 max-w-sm mx-auto">
             Try adjusting your search query, toggling the case sensitivity option, or resetting column restriction filters.
           </p>
         </div>
@@ -204,9 +204,9 @@ export default function SpreadsheetTable({
         <div className="overflow-x-auto w-full max-h-[550px]">
           <table className="w-full text-left border-collapse table-auto">
             <thead>
-              <tr className="bg-slate-100/50 border-b border-slate-150 select-none">
+              <tr className="bg-zinc-800/30 border-b border-zinc-800 select-none">
                 {/* Action header */}
-                <th className="p-3 text-[11px] font-semibold uppercase tracking-wider text-slate-400 w-12 text-center border-r border-slate-150">
+                <th className="p-3 text-[11px] font-semibold uppercase tracking-wider text-zinc-400 w-12 text-center border-r border-zinc-800">
                   Copy Row
                 </th>
                 {headers.map((header, idx) => {
@@ -214,7 +214,7 @@ export default function SpreadsheetTable({
                   return (
                     <th
                       key={`th-${idx}`}
-                      className="p-3 text-[11px] font-bold uppercase tracking-wider text-slate-500 font-sans border-r border-slate-100 last:border-r-0"
+                      className="p-3 text-[11px] font-bold uppercase tracking-wider text-zinc-300 font-sans border-r border-zinc-800 last:border-r-0"
                     >
                       {header}
                     </th>
@@ -222,19 +222,19 @@ export default function SpreadsheetTable({
                 })}
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-zinc-800">
               {paginatedRows.map((row, rowIdx) => {
                 const actualIndex = startIndex + rowIdx + 1;
                 return (
                   <tr
                     key={`tr-${rowIdx}`}
-                    className="hover:bg-slate-50/60 group transition-colors"
+                    className="hover:bg-zinc-800/20 group transition-colors"
                   >
                     {/* Copy row trigger */}
-                    <td className="p-2.5 text-center border-r border-slate-100 align-middle">
+                    <td className="p-2.5 text-center border-r border-zinc-800 align-middle">
                       <button
                         onClick={(e) => handleCopyRow(row, e)}
-                        className="p-1.5 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-md transition-all cursor-pointer inline-flex items-center justify-center"
+                        className="p-1.5 text-zinc-500 hover:text-emerald-400 hover:bg-emerald-900/30 rounded-md transition-all cursor-pointer inline-flex items-center justify-center"
                         title="Copy entire row to clipboard"
                       >
                         <Copy className="w-3.5 h-3.5" />
@@ -247,7 +247,7 @@ export default function SpreadsheetTable({
                         <td
                           key={`td-${rowIdx}-${colIdx}`}
                           onClick={(e) => handleCellClick(cell, e)}
-                          className="p-3 text-xs font-mono border-r border-slate-100 last:border-r-0 relative hover:bg-emerald-50/20 cursor-pointer group/cell"
+                          className="p-3 text-xs font-mono border-r border-zinc-800 last:border-r-0 relative hover:bg-emerald-900/20 cursor-pointer group/cell"
                           title="Click to copy cell value"
                         >
                           <div className="flex items-center justify-between gap-2">
@@ -271,44 +271,44 @@ export default function SpreadsheetTable({
 
       {/* Pagination Controls */}
       {totalPages > 1 && (
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 border-t border-slate-100 text-xs bg-slate-50/50 select-none">
-          <div className="text-slate-500">
-            Showing <span className="font-semibold text-slate-700">{startIndex + 1}</span> to{" "}
-            <span className="font-semibold text-slate-700">{endIndex}</span> of{" "}
-            <span className="font-semibold text-slate-700">{rows.length}</span> filtered results
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 border-t border-zinc-800 text-xs bg-zinc-900/30 select-none">
+          <div className="text-zinc-400">
+            Showing <span className="font-semibold text-zinc-200">{startIndex + 1}</span> to{" "}
+            <span className="font-semibold text-zinc-200">{endIndex}</span> of{" "}
+            <span className="font-semibold text-zinc-200">{rows.length}</span> filtered results
           </div>
 
           <div className="flex items-center gap-1.5">
             <button
               onClick={() => setCurrentPage(1)}
               disabled={displayPage === 1}
-              className="p-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-40 disabled:hover:bg-white transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg border border-zinc-800 bg-zinc-800/40 hover:bg-zinc-800/60 disabled:opacity-40 disabled:hover:bg-zinc-800/40 transition-colors cursor-pointer"
             >
               <ChevronsLeft className="w-4 h-4" />
             </button>
             <button
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={displayPage === 1}
-              className="p-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-40 disabled:hover:bg-white transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg border border-zinc-800 bg-zinc-800/40 hover:bg-zinc-800/60 disabled:opacity-40 disabled:hover:bg-zinc-800/40 transition-colors cursor-pointer"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
 
-            <span className="px-3 py-1 font-medium text-slate-600">
+            <span className="px-3 py-1 font-medium text-zinc-300">
               Page {displayPage} of {totalPages}
             </span>
 
             <button
               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
               disabled={displayPage === totalPages}
-              className="p-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-40 disabled:hover:bg-white transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg border border-zinc-800 bg-zinc-800/40 hover:bg-zinc-800/60 disabled:opacity-40 disabled:hover:bg-zinc-800/40 transition-colors cursor-pointer"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
             <button
               onClick={() => setCurrentPage(totalPages)}
               disabled={displayPage === totalPages}
-              className="p-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-40 disabled:hover:bg-white transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg border border-zinc-800 bg-zinc-800/40 hover:bg-zinc-800/60 disabled:opacity-40 disabled:hover:bg-zinc-800/40 transition-colors cursor-pointer"
             >
               <ChevronsRight className="w-4 h-4" />
             </button>
@@ -332,7 +332,7 @@ export default function SpreadsheetTable({
               zIndex: 9999,
               pointerEvents: "none",
             }}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 text-white text-xs font-semibold rounded-lg shadow-xl border border-slate-800"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-950 text-white text-xs font-semibold rounded-lg shadow-xl border border-zinc-800"
           >
             <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
             <span className="truncate max-w-[120px]">Copied!</span>
