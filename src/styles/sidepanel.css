@@ -1,0 +1,154 @@
+/* ============================================================================
+   Side Panel Mode — global styles & container-query utilities
+   Import once from your entry file (e.g. src/main.tsx).
+   ============================================================================ */
+
+/* 1. Establish a size container so @container queries work in the subtree. */
+.sp-root {
+  container-type: inline-size;
+  container-name: sp;
+}
+
+/* 2. Design tokens tuned per-mode.
+      All child components can consume these vars, so a single tweak here
+      re-tunes the whole app for a given mode. */
+.sp-root {
+  /* Defaults (wide mode) */
+  --sp-pad-x: 1.5rem;         /* 24px */
+  --sp-pad-y: 1.25rem;        /* 20px */
+  --sp-gap: 1rem;             /* 16px */
+  --sp-radius: 0.875rem;      /* 14px */
+  --sp-font-scale: 1;
+  --sp-touch-target: 40px;
+  --sp-header-height: 64px;
+  --sp-actionbar-height: 0px; /* no sticky bar on desktop */
+}
+
+/* Compact mode */
+@container sp (max-width: 768px) {
+  .sp-root {
+    --sp-pad-x: 1rem;
+    --sp-pad-y: 1rem;
+    --sp-gap: 0.75rem;
+    --sp-radius: 0.75rem;
+    --sp-font-scale: 0.98;
+  }
+}
+
+/* Side-panel mode (the important one) */
+@container sp (max-width: 520px) {
+  .sp-root {
+    --sp-pad-x: 0.75rem;   /* 12px — reclaim horizontal space */
+    --sp-pad-y: 0.75rem;
+    --sp-gap: 0.625rem;    /* 10px */
+    --sp-radius: 0.625rem;
+    --sp-font-scale: 0.94;
+    --sp-touch-target: 44px; /* iOS HIG minimum */
+    --sp-header-height: 52px;
+    --sp-actionbar-height: 56px; /* sticky bottom action bar */
+  }
+
+  /* Suppress horizontal scroll everywhere in side-panel mode */
+  .sp-root,
+  .sp-root * {
+    max-width: 100%;
+  }
+  .sp-root {
+    overflow-x: hidden;
+  }
+}
+
+/* 3. Utility classes any component can use. */
+
+/* Responsive stack: horizontal above threshold, vertical below */
+.sp-flex-stack {
+  display: flex;
+  gap: var(--sp-gap);
+  flex-direction: row;
+  align-items: center;
+}
+@container sp (max-width: 520px) {
+  .sp-flex-stack {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Adaptive grid: N cols default → 2 in compact → 1 in side panel */
+.sp-grid {
+  display: grid;
+  gap: var(--sp-gap);
+  grid-template-columns: repeat(var(--sp-cols, 4), minmax(0, 1fr));
+}
+@container sp (max-width: 768px) {
+  .sp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@container sp (max-width: 520px) {
+  .sp-grid { grid-template-columns: 1fr; }
+}
+
+/* Page padding wrapper */
+.sp-page {
+  padding: var(--sp-pad-y) var(--sp-pad-x);
+}
+
+/* Responsive typography scale */
+.sp-h1 { font-size: calc(1.875rem * var(--sp-font-scale)); line-height: 1.15; font-weight: 700; }
+.sp-h2 { font-size: calc(1.5rem   * var(--sp-font-scale)); line-height: 1.2;  font-weight: 700; }
+.sp-h3 { font-size: calc(1.125rem * var(--sp-font-scale)); line-height: 1.3;  font-weight: 600; }
+.sp-body { font-size: calc(0.9375rem * var(--sp-font-scale)); line-height: 1.55; }
+.sp-meta { font-size: calc(0.8125rem * var(--sp-font-scale)); line-height: 1.4; opacity: 0.75; }
+
+@container sp (max-width: 520px) {
+  .sp-h1 { font-size: 1.375rem; }
+  .sp-h2 { font-size: 1.125rem; }
+  .sp-h3 { font-size: 1rem; }
+}
+
+/* Touch-friendly hit targets */
+.sp-hit {
+  min-height: var(--sp-touch-target);
+  min-width: var(--sp-touch-target);
+}
+
+/* Sticky bottom action bar (only visible in side-panel mode) */
+.sp-actionbar { display: none; }
+@container sp (max-width: 520px) {
+  .sp-actionbar {
+    display: flex;
+    position: sticky;
+    bottom: 0;
+    z-index: 40;
+    gap: 0.5rem;
+    padding: 0.5rem var(--sp-pad-x);
+    background: color-mix(in oklab, canvas 92%, transparent);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid color-mix(in oklab, currentColor 15%, transparent);
+  }
+}
+
+/* Bottom-sheet-style modal animation */
+.sp-sheet {
+  border-radius: var(--sp-radius) var(--sp-radius) 0 0;
+  animation: sp-sheet-in 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes sp-sheet-in {
+  from { transform: translateY(100%); opacity: 0.4; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Table ↔ card list swap (used by AdaptiveTable) */
+.sp-cards-wrap { display: none; }
+.sp-table-wrap { display: block; }
+@container sp (max-width: 520px) {
+  .sp-table-wrap { display: none; }
+  .sp-cards-wrap { display: block; }
+}
+
+/* Smooth, contained scrolling in side-panel mode */
+@container sp (max-width: 520px) {
+  .sp-scroll {
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+  }
+}
