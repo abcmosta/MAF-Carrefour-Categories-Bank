@@ -25,7 +25,11 @@ import {
 import { motion, AnimatePresence } from "motion/react";
 
 import SearchHeader from "./components/SearchHeader";
-import { AdaptiveGrid, AdaptiveStatCard } from "./components/adaptive";
+import {
+  AdaptiveGrid,
+  AdaptiveStatCard,
+  useSidePanelMode,
+} from "./components/adaptive";
 import { ExcelData, SearchOptions, CopyToast } from "./types";
 
 // Import pre-mapped and compiled datasets
@@ -34,6 +38,7 @@ import mappedLegacy from "./mappedLegacy.json";
 import fullLegacyRaw from "./fullLegacyRaw.json";
 
 export default function App() {
+  const { isSidePanel } = useSidePanelMode();
   // Navigation tabs
   const [activeTab, setActiveTab] = useState<"new_dph" | "legacy_mapping" | "full_catalog">("full_catalog");
   
@@ -484,6 +489,7 @@ export default function App() {
         <SearchHeader />
 
         {/* Dashboard Stat Counter Cards (HeroUI Bento Grid style with hover scale effects) */}
+{!isSidePanel && (
 <AdaptiveGrid cols={4} className="mb-6" id="dashboard-statistics-grid">
   <AdaptiveStatCard
     label="New D.P.H. Categories"
@@ -517,9 +523,13 @@ export default function App() {
     icon={<AlertTriangle className="w-4 h-4" />}
   />
 </AdaptiveGrid>
+)}
 
         {/* Central Commanding Command-style Search Dock */}
-        <div className="bg-[#fafafa]/90 dark:bg-zinc-900/90 backdrop-blur-md rounded-3xl border border-slate-200/80 dark:border-zinc-800/80 shadow-md p-6 md:p-8 relative overflow-hidden mb-6" id="central-search-card">
+        <div
+          className={`bg-[#fafafa]/90 dark:bg-zinc-900/90 backdrop-blur-md rounded-3xl border border-slate-200/80 dark:border-zinc-800/80 shadow-md p-6 md:p-8 relative overflow-hidden mb-6 ${isSidePanel ? "sticky top-2 z-40" : ""}`}
+          id="central-search-card"
+        >
           <div className="absolute top-[-20%] right-[-10%] opacity-5 dark:opacity-10 pointer-events-none select-none z-0">
             <Search className="w-56 h-56 text-blue-600 dark:text-cyan-400" />
           </div>
