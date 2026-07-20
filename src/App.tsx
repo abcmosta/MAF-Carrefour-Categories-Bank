@@ -25,6 +25,11 @@ import {
 import { motion, AnimatePresence } from "motion/react";
 
 import SearchHeader from "./components/SearchHeader";
+import {
+  AdaptiveGrid,
+  AdaptiveStatCard,
+  useSidePanelMode,
+} from "./components/adaptive";
 import { ExcelData, SearchOptions, CopyToast } from "./types";
 
 // Import pre-mapped and compiled datasets
@@ -33,6 +38,7 @@ import mappedLegacy from "./mappedLegacy.json";
 import fullLegacyRaw from "./fullLegacyRaw.json";
 
 export default function App() {
+  const { isSidePanel } = useSidePanelMode();
   // Navigation tabs
   const [activeTab, setActiveTab] = useState<"new_dph" | "legacy_mapping" | "full_catalog">("full_catalog");
   
@@ -483,69 +489,47 @@ export default function App() {
         <SearchHeader />
 
         {/* Dashboard Stat Counter Cards (HeroUI Bento Grid style with hover scale effects) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6" id="dashboard-statistics-grid">
-          {/* Card 1 */}
-          <div className="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
-            <div className="flex items-center justify-between">
-              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">New D.P.H. Categories</p>
-              <div className="p-2 bg-blue-500/10 text-blue-400 rounded-xl group-hover:bg-blue-500/20 transition-colors">
-                <CheckCircle2 className="w-4 h-4" />
-              </div>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-50 mt-2 tracking-tight">161</h3>
-            <p className="text-[10px] text-blue-400 font-semibold mt-2 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
-              <span>Fully Redesigned Channel</span>
-            </p>
-          </div>
+{!isSidePanel && (
+<AdaptiveGrid cols={4} className="mb-6" id="dashboard-statistics-grid">
+  <AdaptiveStatCard
+    label="New D.P.H. Categories"
+    value={161}
+    tone="success"
+    hint="Fully Redesigned Channel"
+    icon={<CheckCircle2 className="w-4 h-4" />}
+  />
 
-          {/* Card 2 */}
-          <div className="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
-            <div className="flex items-center justify-between">
-              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Total Database Size</p>
-              <div className="p-2 bg-slate-500/10 text-zinc-300 rounded-xl group-hover:bg-slate-500/20 transition-colors">
-                <FileSpreadsheet className="w-4 h-4" />
-              </div>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-50 mt-2 tracking-tight">2,255</h3>
-            <p className="text-[10px] text-zinc-400 font-semibold mt-2">
-              Historical catalog paths loaded
-            </p>
-          </div>
+  <AdaptiveStatCard
+    label="Total Database Size"
+    value="2,255"
+    tone="accent"
+    hint="Historical catalog paths loaded"
+    icon={<FileSpreadsheet className="w-4 h-4" />}
+  />
 
-          {/* Card 3 */}
-          <div className="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
-            <div className="flex items-center justify-between">
-              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Merged & Streamlined</p>
-              <div className="p-2 bg-emerald-500/10 text-emerald-400 rounded-xl group-hover:bg-emerald-500/20 transition-colors">
-                <ArrowRightLeft className="w-4 h-4" />
-              </div>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-blue-400 mt-2 tracking-tight">106</h3>
-            <p className="text-[10px] text-emerald-400 font-semibold mt-2 flex items-center gap-1">
-              <TrendingUp className="w-3 h-3" />
-              <span>Paths merged & mapped</span>
-            </p>
-          </div>
+  <AdaptiveStatCard
+    label="Merged & Streamlined"
+    value={106}
+    tone="default"
+    hint="Paths merged & mapped"
+    icon={<ArrowRightLeft className="w-4 h-4" />}
+  />
 
-          {/* Card 4 */}
-          <div className="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-4.5 shadow-sm hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group">
-            <div className="flex items-center justify-between">
-              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Retired & Replaced</p>
-              <div className="p-2 bg-red-500/10 text-red-400 rounded-xl group-hover:bg-red-500/20 transition-colors">
-                <AlertTriangle className="w-4 h-4" />
-              </div>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-red-400 mt-2 tracking-tight">55</h3>
-            <p className="text-[10px] text-amber-400 font-semibold mt-2 flex items-center gap-1">
-              <AlertCircle className="w-3.5 h-3.5" />
-              <span>Sellers action requested</span>
-            </p>
-          </div>
-        </div>
+  <AdaptiveStatCard
+    label="Retired & Replaced"
+    value={55}
+    tone="danger"
+    hint="Sellers action requested"
+    icon={<AlertTriangle className="w-4 h-4" />}
+  />
+</AdaptiveGrid>
+)}
 
         {/* Central Commanding Command-style Search Dock */}
-        <div className="bg-[#fafafa]/90 dark:bg-zinc-900/90 backdrop-blur-md rounded-3xl border border-slate-200/80 dark:border-zinc-800/80 shadow-md p-6 md:p-8 relative overflow-hidden mb-6" id="central-search-card">
+        <div
+          className={`bg-[#fafafa]/90 dark:bg-zinc-900/90 backdrop-blur-md rounded-3xl border border-slate-200/80 dark:border-zinc-800/80 shadow-md p-6 md:p-8 relative overflow-hidden mb-6 ${isSidePanel ? "sticky top-2 z-40" : ""}`}
+          id="central-search-card"
+        >
           <div className="absolute top-[-20%] right-[-10%] opacity-5 dark:opacity-10 pointer-events-none select-none z-0">
             <Search className="w-56 h-56 text-blue-600 dark:text-cyan-400" />
           </div>
