@@ -6,6 +6,7 @@ interface AdaptiveGridProps {
   cols?: number;
   className?: string;
   style?: CSSProperties;
+  id?: string;
 }
 
 /**
@@ -17,9 +18,10 @@ interface AdaptiveGridProps {
  *
  * Use this everywhere you'd normally hardcode `grid-cols-4`, etc.
  */
-export function AdaptiveGrid({ children, cols = 4, className = '', style }: AdaptiveGridProps) {
+export function AdaptiveGrid({ children, cols = 4, className = '', style, id }: AdaptiveGridProps) {
   return (
     <div
+      id={id}
       className={`sp-grid ${className}`}
       style={{ ...(style ?? {}), ['--sp-cols' as string]: cols }}
     >
