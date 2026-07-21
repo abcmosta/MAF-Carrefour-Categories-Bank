@@ -5,6 +5,7 @@ Static React application for:
 - New Categories Bank
 - Legacy Category Mapping
 - Full Legacy Catalogue View
+- Real Time Index Search Workstation
 
 Tech Stack:
 - React 19
@@ -13,8 +14,4 @@ Tech Stack:
 - Tailwind
 
 Deployment:
-- Netlify
-
-Data Sources:
-- Legacy.json
-- New_Categories.json
+- CloudFlare
