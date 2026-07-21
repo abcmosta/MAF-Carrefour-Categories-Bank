@@ -459,7 +459,7 @@ export default function App() {
       <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-purple-500/10 dark:bg-purple-600/5 blur-[140px] pointer-events-none select-none z-0" />
 
       {/* HeroUI Premium Navigation Bar */}
-      <nav className="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/70 border-b border-zinc-900/80 shadow-xs select-none">
+      <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-slate-200/80 shadow-xs select-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo Brand Segment */}
@@ -468,14 +468,14 @@ export default function App() {
                 CARREFOUR
               </span>
               <div className="hidden md:flex flex-col border-l border-zinc-800 pl-3">
-                <span className="text-xs font-bold text-zinc-200">MAF Carrefour Categories Bank</span>
+                <span className="text-xs font-bold text-zinc-800">MAF Carrefour Categories Bank</span>
                 <span className="text-[10px] text-zinc-500 font-medium">@mosabdelaziz</span>
               </div>
             </div>
 
             {/* Portal Meta Indicator */}
             <div className="flex items-center gap-4">
-              <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-zinc-900 border border-zinc-800/80 rounded-full text-[11px] font-mono font-semibold text-zinc-400">
+              <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-slate-100 border border-slate-200/80 rounded-full text-[11px] font-mono font-semibold text-zinc-600">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-500 bg-blue-400 animate-pulse" />
                 <span>Cosmetics D.P.H. Workstation v2.4</span>
               </div>
