@@ -67,7 +67,7 @@ export default function App() {
 
   // Force Dark Mode permanently (application is dark-theme only)
   useEffect(() => {
-    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("dark");
   }, []);
 
   // Reset pagination when query, tab, or filters change
@@ -453,7 +453,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen pb-20 font-sans relative bg-zinc-950 text-zinc-100 dark" id="app-root-container">
+    <div className="min-h-screen pb-20 font-sans relative bg-[#fafafa] text-zinc-900" id="app-root-container">
       {/* Decorative ambient background glows for HeroUI dark mode branding */}
       <div className="absolute top-[-10%] left-[-10%] w-[450px] h-[450px] rounded-full bg-blue-500/10 dark:bg-blue-600/5 blur-[120px] pointer-events-none select-none z-0" />
       <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-purple-500/10 dark:bg-purple-600/5 blur-[140px] pointer-events-none select-none z-0" />
