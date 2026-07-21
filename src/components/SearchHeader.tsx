@@ -7,7 +7,7 @@ export default function SearchHeader() {
 
   return (
     <div 
-      className="bg-zinc-900/80 backdrop-blur-md rounded-2xl border border-zinc-800/80 shadow-md p-5 mb-6 transition-all relative overflow-hidden" 
+      className="bg-white/80 backdrop-blur-md rounded-2xl border border-slate-200/80 shadow-md p-5 mb-6 transition-all relative overflow-hidden" 
       id="search-header-container"
     >
       {/* Decorative top accent glow */}
