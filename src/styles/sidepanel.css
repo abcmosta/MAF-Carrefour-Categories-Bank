@@ -152,3 +152,5 @@
     scroll-behavior: smooth;
   }
 }
+
+@container sp (max-width: 520px) { .sp-root table { max-width: none; width: max-content; } }
