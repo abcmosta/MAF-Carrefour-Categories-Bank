@@ -1,46 +1,72 @@
 # Taxonomy Change Report
 
-Source file: `Categoization Bank File - New.xlsx` (Final + Taxonomy sheets)
+Source file: `MKP Categories .xlsx` (raw category export)
 
 ## Summary
-- New source-of-truth records: **2258** (2256 fully mapped, 2 unmatched)
-- Distinct L1 departments: **20**
+- New source-of-truth records: **2281** (2281 fully mapped, 0 unmatched)
+- Distinct L1 departments: **9**
 - Previous dataset (fullLegacyRaw): **2255** rows
 
 ## Diff vs current data (matched on product-type name)
-- Carried over (common): **2247**
-- Added (in new, not old): **3**
-- Removed (in old, not new): **0**
+- Carried over (common): **2239**
+- Added (in new, not old): **33**
+- Removed (in old, not new): **8**
 
-## L1 departments (20)
-- Home & Garden — 378
-- Electronics & Appliances — 341
-- Beauty & Personal Care — 330
-- Food Cupboard — 233
-- Fashion, Accessories & Luggage — 167
-- Bio & Organic Food — 137
-- Cleaning & Household — 118
-- Beverages — 76
-- Health & Fitness — 75
-- Baby Products — 65
-- Stationery & School Supplies — 64
-- Fresh Food — 52
-- Toys & Outdoor — 50
-- Kiosk — 46
-- Automotive — 31
-- Pet Supplies — 25
-- Smartphones, Tablets & Wearables — 21
-- Frozen Food — 12
-- Fruits & Vegetables — 7
-- Bakery — 2
+## L1 departments (9)
+- 01 — 681
+- 03 — 599
+- 04 — 386
+- 05 — 246
+- 1 — 241
+- 02 — 79
+- 06 — 26
+- 6 — 15
+- 4 — 7
 
-## Unmatched product types (no taxonomy path): 2
-- SPLIT AC  2T & ABOVE (`Mkt_HeavyHouseHold_Appliances_AirConditioning_SPLITAC2TABOVE`)
-- Adult Hygiene (`Mkt_CONSUMERGOODS_D.P.H._DIAPERS_AdultHygiene`)
+## Unmatched product types (no taxonomy path): 0
 
-## Sample added product types (3 of 3)
+
+## Sample added product types (33 of 33)
+- split ac  2t & above
 - golfcart
 - lambandgoat
-- split ac  2t & above
+- multivitamins
+- vitaminc
+- vitamind
+- vitaminb&b-complex
+- calcium
+- iron
+- magnesium
+- zinc
+- othervitamins&minerals
+- omega-3&fishoil
+- probiotics&guthealth
+- herbal&naturalsupplements
+- immunitysupport
+- joint&bonesupport
+- hair,skin&nails
+- sleep&relaxation
+- antioxidants&others
+- mass&weightgainers
+- pre-workout&energy
+- aminoacids&bcaas
+- creatine
+- post-workout&recovery
+- proteinbars
+- proteinshakes(rtd)
+- hydration&electrolytes
+- mealreplacements
+- fatburners
+- detox&cleanse
+- keto&low-carbsupport
+- homeopathy&naturalremedies
 
-## Sample removed product types (0 of 0)
+## Sample removed product types (8 of 8)
+- dietdrinks
+- dietfood
+- dietpowder
+- diettablets
+- fitnessbars
+- fitnessothers
+- fitnesspowder
+- split ac 2t & above

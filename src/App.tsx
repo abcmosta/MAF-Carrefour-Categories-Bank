@@ -3,19 +3,19 @@ import type { MouseEvent as ReactMouseEvent, ReactNode } from "react";
 import {
   Search, Check, Columns3, Maximize2, Minimize2,
   PanelLeftClose, PanelLeftOpen, RotateCcw, Filter, AlertTriangle,
-  Pin, SlidersHorizontal,
+  Pin, SlidersHorizontal, FileSpreadsheet, Download,
 } from "lucide-react";
+import * as XLSX from "xlsx";
 import categoriesData from "./mkpCategories.json";
 
 type Category = {
   path: string; productType: string; vertical: string;
   l1: string; l2: string; l3: string; l4: string;
-  l1_ar?: string; l2_ar?: string; l3_ar?: string; l4_ar?: string;
-  hybris?: string; unmatched?: boolean;
+  template?: string; unmatched?: boolean;
 };
 const CATEGORIES = categoriesData as unknown as Category[];
 
-type ColId = "productType" | "l1" | "l2" | "l3" | "l4" | "path" | "hybris";
+type ColId = "productType" | "l1" | "l2" | "l3" | "l4" | "path" | "template";
 interface ColDef { id: ColId; label: string; width: number; mono?: boolean; }
 // Mirakl Path is deliberately first: it is pinned as Column A (see `columns`) and never hidden.
 const DEFAULT_COLUMNS: ColDef[] = [
@@ -25,12 +25,12 @@ const DEFAULT_COLUMNS: ColDef[] = [
   { id: "l2", label: "L2 · Section", width: 175 },
   { id: "l3", label: "L3 · Family", width: 185 },
   { id: "l4", label: "L4 · Sub-family", width: 175 },
-  { id: "hybris", label: "Hybris Class", width: 150 },
+  { id: "template", label: "Template", width: 240 },
 ];
 const PINNED: ColId = "path"; // always Column A, never hideable — key value for upload ops
 
 // Columns the free-text query can target. field:value tokens can target any of these too.
-const SEARCH_FIELDS_ALL: ColId[] = ["path", "productType", "l1", "l2", "l3", "l4", "hybris"];
+const SEARCH_FIELDS_ALL: ColId[] = ["path", "productType", "l1", "l2", "l3", "l4", "template"];
 const FIELD_ALIASES: Record<string, ColId> = {
   path: "path", mirakl: "path",
   producttype: "productType", pt: "productType", type: "productType",
@@ -38,7 +38,7 @@ const FIELD_ALIASES: Record<string, ColId> = {
   l2: "l2", section: "l2",
   l3: "l3", family: "l3",
   l4: "l4", subfamily: "l4", sub: "l4",
-  hybris: "hybris", class: "hybris",
+  template: "template", tpl: "template",
 };
 
 type Density = "compact" | "comfortable" | "spacious";
@@ -93,6 +93,8 @@ export default function App() {
   const [selectedL1, setSelectedL1] = useState<Set<string>>(new Set());
   const [fullscreen, setFullscreen] = useState(false);
   const [colMenuOpen, setColMenuOpen] = useState(false);
+  const [exportMenuOpen, setExportMenuOpen] = useState(false);
+  const [exportColumns, setExportColumns] = useState<ColId[]>([]);
   const [searchMenuOpen, setSearchMenuOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);
@@ -155,6 +157,29 @@ export default function App() {
     window.setTimeout(() => setToast(null), 1400);
   }, []);
 
+  const exportIds = exportColumns.length ? exportColumns : columns.map((c) => c.id);
+  const toggleExportColumn = (id: ColId) => {
+    setExportColumns((current) => {
+      const selected = current.length ? current : columns.map((c) => c.id);
+      if (selected.includes(id) && selected.length === 1) return selected;
+      return selected.includes(id) ? selected.filter((c) => c !== id) : [...selected, id];
+    });
+  };
+  const exportXlsx = () => {
+    const selectedColumns = DEFAULT_COLUMNS.filter((c) => exportIds.includes(c.id));
+    const sheetRows = rows.map((row) => Object.fromEntries(
+      selectedColumns.map((column) => [column.label, String((row as Record<string, unknown>)[column.id] ?? "")]),
+    ));
+    const worksheet = XLSX.utils.json_to_sheet(sheetRows);
+    worksheet['!cols'] = selectedColumns.map((column) => ({ wch: Math.min(48, Math.max(12, column.width / 8)) }));
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Categories");
+    XLSX.writeFile(workbook, `categories-export-${new Date().toISOString().slice(0, 10)}.xlsx`);
+    setExportMenuOpen(false);
+    setToast(`Exported ${rows.length.toLocaleString()} rows`);
+    window.setTimeout(() => setToast(null), 1400);
+  };
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const inInput = (e.target as HTMLElement)?.tagName === "INPUT";
@@ -210,8 +235,33 @@ export default function App() {
                   </label>
                 ))}
                 <div className="mt-1.5 px-1.5 pt-1.5 border-t border-slate-100 text-[11px] leading-relaxed text-slate-500">
-                  <span className="font-semibold text-slate-600">Multi-column search:</span> combine columns in one query, e.g. <code className="bg-slate-100 rounded px-1 font-mono">l1:beverages l3:water</code>. Keys: <span className="font-mono">path, type, l1, l2, l3, l4, hybris</span>.
+                  <span className="font-semibold text-slate-600">Multi-column search:</span> combine columns in one query, e.g. <code className="bg-slate-100 rounded px-1 font-mono">l1:beverages l3:water</code>. Keys: <span className="font-mono">path, type, l1, l2, l3, l4, template</span>.
                 </div>
+              </div>
+            </>
+          )}
+        </div>
+        <div className="relative shrink-0">
+          <button onClick={() => setExportMenuOpen((v) => !v)} title="Export filtered rows to XLSX" className="flex items-center gap-1 h-8 px-2.5 rounded-lg ring-1 ring-slate-200 bg-white text-xs font-semibold text-slate-700 hover:bg-slate-50">
+            <FileSpreadsheet className="w-4 h-4 text-emerald-600" /><span className="hidden sm:inline">XLSX</span>
+          </button>
+          {exportMenuOpen && (
+            <>
+              <div className="fixed inset-0 z-40" onClick={() => setExportMenuOpen(false)} />
+              <div className="absolute right-0 top-full mt-1 z-50 w-64 rounded-lg bg-white shadow-xl ring-1 ring-slate-200 p-2">
+                <div className="flex items-center justify-between px-1 pb-1">
+                  <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400">Export columns</span>
+                  <button onClick={() => setExportColumns(columns.map((c) => c.id))} className="text-[11px] text-blue-600 hover:underline">Visible</button>
+                </div>
+                {DEFAULT_COLUMNS.map((c) => (
+                  <label key={c.id} className="flex items-center gap-2 px-1.5 py-1 rounded hover:bg-slate-50 cursor-pointer text-sm text-slate-700">
+                    <input type="checkbox" checked={exportIds.includes(c.id)} onChange={() => toggleExportColumn(c.id)} />
+                    <span className="truncate">{c.label}</span>
+                  </label>
+                ))}
+                <button onClick={exportXlsx} className="mt-1.5 w-full flex items-center justify-center gap-1.5 h-8 rounded-md bg-emerald-600 text-white text-xs font-semibold hover:bg-emerald-700 disabled:opacity-50" disabled={!rows.length}>
+                  <Download className="w-3.5 h-3.5" />Export {rows.length.toLocaleString()} rows
+                </button>
               </div>
             </>
           )}
