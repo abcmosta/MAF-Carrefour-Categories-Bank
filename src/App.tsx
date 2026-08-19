@@ -22,9 +22,9 @@ const DEFAULT_COLUMNS: ColDef[] = [
   { id: "path", label: "Mirakl Path", width: 340, mono: true },
   { id: "productType", label: "Product Type", width: 240 },
   { id: "l1", label: "L1 · Department", width: 175 },
-  { id: "l2", label: "L2 · Section", width: 175 },
-  { id: "l3", label: "L3 · Family", width: 185 },
-  { id: "l4", label: "L4 · Sub-family", width: 175 },
+  { id: "l2", label: "L2 · Vertical", width: 175 },
+  { id: "l3", label: "L3 · Category", width: 185 },
+  { id: "l4", label: "L4 · Sub-category", width: 175 },
   { id: "template", label: "Template", width: 240 },
 ];
 const PINNED: ColId = "path"; // always Column A, never hideable — key value for upload ops

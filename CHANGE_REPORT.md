@@ -4,7 +4,7 @@ Source file: `MKP Categories .xlsx` (raw category export)
 
 ## Summary
 - New source-of-truth records: **2281** (2281 fully mapped, 0 unmatched)
-- Distinct L1 departments: **9**
+- Distinct L1 departments: **10**
 - Previous dataset (fullLegacyRaw): **2255** rows
 
 ## Diff vs current data (matched on product-type name)
@@ -12,16 +12,17 @@ Source file: `MKP Categories .xlsx` (raw category export)
 - Added (in new, not old): **33**
 - Removed (in old, not new): **8**
 
-## L1 departments (9)
-- 01 — 681
-- 03 — 599
-- 04 — 386
-- 05 — 246
-- 1 — 241
-- 02 — 79
-- 06 — 26
-- 6 — 15
-- 4 — 7
+## L1 departments (10)
+- CONSUMERGOODS — 949
+- LightHouseHold — 598
+- HeavyHouseHold — 399
+- Textile — 219
+- FRESHFOOD — 61
+- TEXTILE — 34
+- LightHousehold — 11
+- ConsumerGoods — 8
+- TTextile — 1
+- Heavy Household — 1
 
 ## Unmatched product types (no taxonomy path): 0
 

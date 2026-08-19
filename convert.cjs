@@ -7,7 +7,9 @@ const wb=x.readFile(src);
 const rows=x.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:''});
 const recs=[];
 for(const d of rows){
-  recs.push({path:S(d.miraklpath),productType:S(d.producttype),template:S(d.template),vertical:S(d.family),l1:S(d.dept),l2:S(d.sec),l3:S(d.family),l4:S(d.subfamily)});
+  const path=S(d.miraklpath);
+  const categoryLevels=path.split('_').filter(Boolean).slice(1,-1);
+  recs.push({path,productType:S(d.producttype),template:S(d.template),vertical:categoryLevels[1]||'',l1:categoryLevels[0]||'',l2:categoryLevels[1]||'',l3:categoryLevels[2]||'',l4:categoryLevels[3]||''});
 }
 const unmatched=0;
 let old=[]; try{ old=JSON.parse(fs.readFileSync('src/fullLegacyRaw.json')); }catch(e){}
