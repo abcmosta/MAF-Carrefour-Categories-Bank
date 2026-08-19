@@ -90,7 +90,7 @@ function highlight(text: string, terms: string[]): ReactNode {
 export default function App() {
   const [layout, setLayout] = useState<LayoutState>(loadLayout);
   const [query, setQuery] = useState("");
-  const [selectedL1, setSelectedL1] = useState<Set<string>>(new Set());
+  const [selectedL2, setSelectedL2] = useState<Set<string>>(new Set());
   const [fullscreen, setFullscreen] = useState(false);
   const [colMenuOpen, setColMenuOpen] = useState(false);
   const [exportMenuOpen, setExportMenuOpen] = useState(false);
@@ -106,9 +106,9 @@ export default function App() {
 
   const searchFields = layout.searchFields.length ? layout.searchFields : SEARCH_FIELDS_ALL;
 
-  const departments = useMemo(() => {
+  const verticals = useMemo(() => {
     const m = new Map<string, number>();
-    for (const c of CATEGORIES) if (c.l1) m.set(c.l1, (m.get(c.l1) || 0) + 1);
+    for (const c of CATEGORIES) if (c.l2) m.set(c.l2, (m.get(c.l2) || 0) + 1);
     return [...m.entries()].sort((a, b) => b[1] - a[1]);
   }, []);
 
@@ -116,7 +116,7 @@ export default function App() {
 
   const rows = useMemo(() => {
     return CATEGORIES.filter((c) => {
-      if (selectedL1.size && !selectedL1.has(c.l1)) return false;
+      if (selectedL2.size && !selectedL2.has(c.l2)) return false;
       for (const s of parsed.scoped) {
         if (!String((c as Record<string, unknown>)[s.field] ?? "").toLowerCase().includes(s.value)) return false;
       }
@@ -126,7 +126,7 @@ export default function App() {
       }
       return true;
     });
-  }, [parsed, selectedL1, searchFields]);
+  }, [parsed, selectedL2, searchFields]);
 
   const columns = useMemo(() => {
     // Mirakl Path is always Column A and always present, regardless of hide/reorder state.
@@ -201,7 +201,7 @@ export default function App() {
     document.addEventListener("mouseup", up);
   };
 
-  const toggleDept = (name: string) => setSelectedL1((s) => { const n = new Set(s); if (n.has(name)) n.delete(name); else n.add(name); return n; });
+  const toggleVertical = (name: string) => setSelectedL2((s) => { const n = new Set(s); if (n.has(name)) n.delete(name); else n.add(name); return n; });
   const toggleCol = (id: ColId) => { if (id === PINNED) return; setLayout((l) => ({ ...l, hidden: l.hidden.includes(id) ? l.hidden.filter((h) => h !== id) : [...l.hidden, id] })); };
   const toggleSearchField = (id: ColId) => setLayout((l) => ({ ...l, searchFields: l.searchFields.includes(id) ? l.searchFields.filter((f) => f !== id) : [...l.searchFields, id] }));
 
@@ -310,14 +310,14 @@ export default function App() {
         {layout.sidebarOpen && !fullscreen && (
           <aside className="w-60 shrink-0 border-r border-slate-200 bg-white flex flex-col min-h-0">
             <div className="flex items-center justify-between px-3 py-2 border-b border-slate-100">
-              <span className="text-xs font-bold uppercase tracking-wide text-slate-500 flex items-center gap-1.5"><Filter className="w-3.5 h-3.5" />Departments</span>
-              {selectedL1.size > 0 && <button onClick={() => setSelectedL1(new Set())} className="text-[11px] text-blue-600 hover:underline flex items-center gap-0.5"><RotateCcw className="w-3 h-3" />Clear</button>}
+              <span className="text-xs font-bold uppercase tracking-wide text-slate-500 flex items-center gap-1.5"><Filter className="w-3.5 h-3.5" />Verticals (L2)</span>
+              {selectedL2.size > 0 && <button onClick={() => setSelectedL2(new Set())} className="text-[11px] text-blue-600 hover:underline flex items-center gap-0.5"><RotateCcw className="w-3 h-3" />Clear</button>}
             </div>
             <div className="flex-1 overflow-y-auto p-1.5">
-              {departments.map(([name, count]) => {
-                const on = selectedL1.has(name);
+              {verticals.map(([name, count]) => {
+                const on = selectedL2.has(name);
                 return (
-                  <button key={name} onClick={() => toggleDept(name)}
+                  <button key={name} onClick={() => toggleVertical(name)}
                     className={`w-full flex items-center justify-between gap-2 px-2 py-1.5 rounded text-left text-[13px] ${on ? "bg-blue-50 text-blue-800" : "text-slate-700 hover:bg-slate-50"}`}>
                     <span className="truncate flex items-center gap-1.5 min-w-0">
                       <span className={`w-3.5 h-3.5 rounded border shrink-0 flex items-center justify-center ${on ? "bg-blue-600 border-blue-600" : "border-slate-300"}`}>{on && <Check className="w-2.5 h-2.5 text-white" />}</span>
