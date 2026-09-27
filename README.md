@@ -6,6 +6,7 @@ Static React application for:
 - Legacy Category Mapping
 - Full Legacy Catalogue View
 - Real Time Index Search Workstation
+- Country-specific category paths for UAE, KSA, and Egypt
 
 Tech Stack:
 - React 19

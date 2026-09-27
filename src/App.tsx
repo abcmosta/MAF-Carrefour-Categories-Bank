@@ -3,10 +3,11 @@ import type { MouseEvent as ReactMouseEvent, ReactNode } from "react";
 import {
   Search, Check, Columns3, Maximize2, Minimize2,
   PanelLeftClose, PanelLeftOpen, RotateCcw, Filter, AlertTriangle,
-  Pin, SlidersHorizontal, FileSpreadsheet, Download,
+  Pin, SlidersHorizontal, FileSpreadsheet, Download, Globe,
 } from "lucide-react";
 import * as XLSX from "xlsx";
 import categoriesData from "./mkpCategories.json";
+import egyptCategoryPaths from "./egyptCategoryPaths.json";
 
 type Category = {
   path: string; productType: string; vertical: string;
@@ -14,6 +15,17 @@ type Category = {
   template?: string; unmatched?: boolean;
 };
 const CATEGORIES = categoriesData as unknown as Category[];
+const COUNTRIES = ["UAE", "KSA", "Egypt"] as const;
+type Country = (typeof COUNTRIES)[number];
+
+function parseEgyptPath(path: string): Category {
+  const segments = path.split("_");
+  const [prefix, l1, l2, l3, l4] = segments;
+  if (segments.length !== 5 || prefix !== "Mkt" || !l1 || !l2 || !l3 || !l4) {
+    throw new Error(`Invalid Egypt category path: ${path}`);
+  }
+  return { path, productType: l4, template: "", vertical: l2, l1, l2, l3, l4 };
+}
 
 type ColId = "productType" | "l1" | "l2" | "l3" | "l4" | "path" | "template";
 interface ColDef { id: ColId; label: string; width: number; mono?: boolean; }
@@ -89,6 +101,7 @@ function highlight(text: string, terms: string[]): ReactNode {
 
 export default function App() {
   const [layout, setLayout] = useState<LayoutState>(loadLayout);
+  const [country, setCountry] = useState<Country>("UAE");
   const [query, setQuery] = useState("");
   const [selectedL2, setSelectedL2] = useState<Set<string>>(new Set());
   const [fullscreen, setFullscreen] = useState(false);
@@ -104,18 +117,22 @@ export default function App() {
 
   useEffect(() => { try { localStorage.setItem(LS_KEY, JSON.stringify(layout)); } catch { /* ignore */ } }, [layout]);
 
+  const categories = useMemo(
+    () => country === "Egypt" ? (egyptCategoryPaths as string[]).map(parseEgyptPath) : CATEGORIES,
+    [country],
+  );
   const searchFields = layout.searchFields.length ? layout.searchFields : SEARCH_FIELDS_ALL;
 
   const verticals = useMemo(() => {
     const m = new Map<string, number>();
-    for (const c of CATEGORIES) if (c.l2) m.set(c.l2, (m.get(c.l2) || 0) + 1);
+    for (const c of categories) if (c.l2) m.set(c.l2, (m.get(c.l2) || 0) + 1);
     return [...m.entries()].sort((a, b) => b[1] - a[1]);
-  }, []);
+  }, [categories]);
 
   const parsed = useMemo(() => parseQuery(query), [query]);
 
   const rows = useMemo(() => {
-    return CATEGORIES.filter((c) => {
+    return categories.filter((c) => {
       if (selectedL2.size && !selectedL2.has(c.l2)) return false;
       for (const s of parsed.scoped) {
         if (!String((c as Record<string, unknown>)[s.field] ?? "").toLowerCase().includes(s.value)) return false;
@@ -126,7 +143,7 @@ export default function App() {
       }
       return true;
     });
-  }, [parsed, selectedL2, searchFields]);
+  }, [categories, parsed, selectedL2, searchFields]);
 
   const columns = useMemo(() => {
     // Mirakl Path is always Column A and always present, regardless of hide/reorder state.
@@ -174,7 +191,7 @@ export default function App() {
     worksheet['!cols'] = selectedColumns.map((column) => ({ wch: Math.min(48, Math.max(12, column.width / 8)) }));
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Categories");
-    XLSX.writeFile(workbook, `categories-export-${new Date().toISOString().slice(0, 10)}.xlsx`);
+    XLSX.writeFile(workbook, `categories-export-${country.toLowerCase()}-${new Date().toISOString().slice(0, 10)}.xlsx`);
     setExportMenuOpen(false);
     setToast(`Exported ${rows.length.toLocaleString()} rows`);
     window.setTimeout(() => setToast(null), 1400);
@@ -210,6 +227,24 @@ export default function App() {
       <header className="flex items-center gap-2.5 h-12 px-3 border-b border-slate-200 bg-white shrink-0">
         <span className="bg-[#e01a22] text-white px-2 py-0.5 rounded text-[10px] font-extrabold tracking-widest shrink-0">CARREFOUR</span>
         <span className="text-sm font-bold text-zinc-800 hidden lg:block shrink-0">Categories Bank</span>
+        <div className="flex items-center gap-1.5 shrink-0">
+          <Globe className="w-4 h-4 text-slate-500 hidden sm:block" />
+          <label htmlFor="country-select" className="sr-only">Country</label>
+          <select
+            id="country-select"
+            value={country}
+            onChange={(event) => {
+              const selectedCountry = COUNTRIES.find((option) => option === event.target.value);
+              if (!selectedCountry) return;
+              setCountry(selectedCountry);
+              setSelectedL2(new Set());
+            }}
+            aria-label="Select country"
+            className="h-8 rounded-lg ring-1 ring-slate-200 bg-white px-2 text-xs font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+          >
+            {COUNTRIES.map((option) => <option key={option} value={option}>{option}</option>)}
+          </select>
+        </div>
         <div className="relative flex-1 max-w-2xl">
           <Search className="w-4 h-4 absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400" />
           <input ref={searchRef} value={query} onChange={(e) => setQuery(e.target.value)}
@@ -266,7 +301,7 @@ export default function App() {
             </>
           )}
         </div>
-        <span className="text-xs text-slate-500 tabular-nums whitespace-nowrap hidden sm:block">{total.toLocaleString()} / {CATEGORIES.length.toLocaleString()}</span>
+        <span className="text-xs text-slate-500 tabular-nums whitespace-nowrap hidden sm:block">{total.toLocaleString()} / {categories.length.toLocaleString()}</span>
         <div className="hidden md:flex items-center rounded-lg ring-1 ring-slate-200 overflow-hidden text-xs shrink-0">
           {(["compact", "comfortable", "spacious"] as Density[]).map((d) => (
             <button key={d} onClick={() => setLayout((l) => ({ ...l, density: d }))}
